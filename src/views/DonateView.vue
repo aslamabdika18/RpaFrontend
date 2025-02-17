@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-green-700 to-green-800 py-16">
+  <div class="min-h-screen bg-gradient-to-b from-green-700 to-green-800 py-16 mt-6">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <!-- Header Section -->
