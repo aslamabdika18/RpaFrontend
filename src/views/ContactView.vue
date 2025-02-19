@@ -1,45 +1,89 @@
 <template>
-  <div class="min-h-screen bg-gray-50 py-16">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl font-bold text-green-700 mb-6">Kontak Kami</h1>
-      <p class="text-lg text-gray-600 mb-8">
-        Kami ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, komentar, atau ingin bekerja sama dengan kami? Jangan ragu untuk menghubungi kami.
-      </p>
-      <form @submit.prevent="submitForm" class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <div class="mb-6">
-          <input
-            type="text"
-            v-model="name"
-            placeholder="Nama Anda"
-            class="w-full p-3 border border-gray-300 rounded-lg"
-            required
-          />
+  <div class="min-h-screen bg-yellow-100 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-primary text-center mb-6 mt-16">Kontak Kami</h1>
+        <p class="text-xl text-gray-600 text-center mb-12">
+          Kami ingin mendengar dari Anda! Hubungi kami untuk pertanyaan, kerjasama, atau informasi lebih lanjut tentang program-program RPA.
+        </p>
+
+        <!-- Contact Information -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-primary mb-6">Informasi Kontak</h2>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <span class="text-primary text-xl">📍</span>
+                <div>
+                  <p class="font-medium text-gray-700">Alamat</p>
+                  <p class="text-gray-600">Komplek Anuek Laot Residence, Block D, Nomor 32. Meunasah Papeun, Krueng Barona Jaya, Aceh Besar</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <span class="text-primary text-xl">📱</span>
+                <div>
+                  <p class="font-medium text-gray-700">Telepon</p>
+                  <p class="text-gray-600">+62 8527 7600 700</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <span class="text-primary text-xl">📧</span>
+                <div>
+                  <p class="font-medium text-gray-700">Email</p>
+                  <p class="text-gray-600">rumohpanganaceh@gmail.com</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <span class="text-primary text-xl">📷</span>
+                <div>
+                  <p class="font-medium text-gray-700">Instagram</p>
+                  <p class="text-gray-600">@rumohpanganaceh</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-primary mb-6">Kirim Pesan</h2>
+            <form @submit.prevent="submitForm" class="space-y-6">
+              <div>
+                <label class="block text-gray-700 mb-2">Nama</label>
+                <input
+                  type="text"
+                  v-model="name"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-gray-700 mb-2">Email</label>
+                <input
+                  type="email"
+                  v-model="email"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-gray-700 mb-2">Pesan</label>
+                <textarea
+                  v-model="message"
+                  rows="4"
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full py-3 px-6 bg-tertiary hover:bg-yellow-400 text-white rounded-lg hover:bg-rpa-dark transition-colors duration-300"
+              >
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="mb-6">
-          <input
-            type="email"
-            v-model="email"
-            placeholder="Email Anda"
-            class="w-full p-3 border border-gray-300 rounded-lg"
-            required
-          />
-        </div>
-        <div class="mb-6">
-          <textarea
-            v-model="message"
-            placeholder="Pesan Anda"
-            class="w-full p-3 border border-gray-300 rounded-lg"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          class="w-full py-3 text-white bg-green-600 hover:bg-green-700 rounded-lg transition-all duration-300"
-        >
-          Kirim Pesan
-        </button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -52,12 +96,10 @@ const email = ref('');
 const message = ref('');
 
 const submitForm = () => {
-  // Handle form submission logic here (e.g., send data to an API or email)
   console.log({ name: name.value, email: email.value, message: message.value });
   alert('Pesan berhasil dikirim!');
+  name.value = '';
+  email.value = '';
+  message.value = '';
 };
 </script>
-
-<style scoped>
-/* Custom styles for contact page */
-</style>

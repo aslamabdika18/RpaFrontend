@@ -1,8 +1,8 @@
 <template>
   <nav
     :class="{
-      'text-white font-semibold text-md opacity-80': !isScrolled,
-      'bg-green-600 bg-opacity-80 text-white font-semibold shadow-md': isScrolled,
+      'text-white font-semibold text-md opacity-80 shadow-md': !isScrolled,
+      'bg-primary bg-opacity-80 text-white font-semibold shadow-md': isScrolled,
       'p-4': true,
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300': true
     }"
@@ -41,7 +41,7 @@
             }"
           >
             <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">
-              About
+              About Us
             </span>
           </router-link>
         </li>
@@ -86,7 +86,7 @@
             </li>
             <li>
               <router-link to="/about" @click="closeMenu" class="transition-all duration-300">
-                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">About</span>
+                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">About Us</span>
               </router-link>
             </li>
             <li>
@@ -96,7 +96,7 @@
             </li>
             <li>
               <router-link to="/donate" @click="closeMenu" class="transition-all duration-300">
-                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Donasi</span>
+                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Donate</span>
               </router-link>
             </li>
           </ul>
@@ -108,7 +108,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Logo from '@/assets/logo/logo.png';
+import Logo from '@/assets/logo/Logo.jpeg';
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
 
