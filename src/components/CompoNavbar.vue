@@ -1,8 +1,8 @@
 <template>
   <nav
     :class="{
-      'text-white font-semibold text-md opacity-80 shadow-md': !isScrolled,
-      'bg-primary bg-opacity-80 text-white font-semibold shadow-md': isScrolled,
+      'text-white font-bold text-xl opacity-80 shadow-md': !isScrolled,
+      'bg-primary bg-opacity-80 text-white font-bold shadow-md text-xl': isScrolled,
       'p-4': true,
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300': true
     }"
@@ -14,9 +14,11 @@
           'text-2xl font-bold text-white hover:text-green-300 transition-colors duration-300': isScrolled
         }"
       >
+      <div class="p-4 bg-white rounded-xl shadow-md w-fit mx-auto">
         <router-link to="/">
-          <img :src="Logo" alt="Logo" class="h-12 w-auto" />
+          <img :src="Logo" alt="Logo" class="h-12" />
         </router-link>
+      </div>
       </div>
       <ul class="hidden md:flex space-x-8">
         <li>
@@ -108,7 +110,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Logo from '@/assets/logo/Logo.jpeg';
+import Logo from '@/assets/logo/logo.png';
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
 
