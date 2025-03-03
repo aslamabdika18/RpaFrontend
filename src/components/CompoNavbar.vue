@@ -118,12 +118,12 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/program" @click="closeMenu" class="transition-all duration-300">
+              <router-link to="/programs" @click="closeMenu" class="transition-all duration-300">
                 <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Programs</span>
               </router-link>
             </li>
             <li>
-              <router-link to="/mitra" @click="closeMenu" class="transition-all duration-300">
+              <router-link to="/partners" @click="closeMenu" class="transition-all duration-300">
                 <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Partners</span>
               </router-link>
             </li>
