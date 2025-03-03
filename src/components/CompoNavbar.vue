@@ -49,14 +49,27 @@
         </li>
         <li>
           <router-link
-            to="/contact"
+            to="/programs"
             :class="{
               'text-white relative overflow-hidden': !isScrolled,
               'text-white relative overflow-hidden': isScrolled
             }"
           >
             <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">
-              Contact
+              Programs
+            </span>
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            to="/partners"
+            :class="{
+              'text-white relative overflow-hidden': !isScrolled,
+              'text-white relative overflow-hidden': isScrolled
+            }"
+          >
+            <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">
+              Partners
             </span>
           </router-link>
         </li>
@@ -70,6 +83,19 @@
           >
             <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">
               Donate
+            </span>
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            to="/contact"
+            :class="{
+              'text-white relative overflow-hidden': !isScrolled,
+              'text-white relative overflow-hidden': isScrolled
+            }"
+          >
+            <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">
+              Contact
             </span>
           </router-link>
         </li>
@@ -92,13 +118,23 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/contact" @click="closeMenu" class="transition-all duration-300">
-                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Contact</span>
+              <router-link to="/program" @click="closeMenu" class="transition-all duration-300">
+                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Programs</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/mitra" @click="closeMenu" class="transition-all duration-300">
+                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Partners</span>
               </router-link>
             </li>
             <li>
               <router-link to="/donate" @click="closeMenu" class="transition-all duration-300">
                 <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Donate</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/contact" @click="closeMenu" class="transition-all duration-300">
+                <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-4">Contact</span>
               </router-link>
             </li>
           </ul>
