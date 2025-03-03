@@ -6,7 +6,7 @@
         <div
           v-for="(image, index) in images"
           :key="index"
-          class="absolute inset-0 h-full w-full bg-cover bg-center transition-opacity duration-500"
+          class="absolute inset-0 h-full w-full bg-cover bg-center transition-opacity duration-1000 ease-in-out"
           :class="{ 'opacity-0': currentImageIndex !== index }"
           :style="`background-image: url(${image})`"
         ></div>
@@ -66,56 +66,56 @@
       </div>
     </section>
 
-    <!-- Dokumentasi Section -->
-  <section class="py-16 bg-grey-100 relative overflow-hidden">
-    <div class="container mx-auto px-4 relative">
-      <h2 class="text-4xl font-bold text-center text-primary mb-12">Dokumentasi Kami</h2>
-      <!-- Swiper Container -->
-      <swiper
-        :modules="[Autoplay, Navigation, EffectCoverflow]"
-        :slides-per-view="3"
-        :centered-slides="true"
-        :space-between="30"
-        :loop="true"
-        :autoplay="{
-          delay: 3000,
-          disableOnInteraction: false,
-        }"
-        :navigation="{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }"
-        :effect="'coverflow'"
-        :coverflowEffect="{
-          rotate: 0,
-          stretch: 80,
-          depth: 350,
-          modifier: 1,
-          slideShadows: true,
-        }"
-        class="swiper-container"
-      >
-        <!-- Slide Items -->
-        <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
-          <div class="relative w-full h-96 rounded-lg shadow-xl overflow-hidden">
-            <!-- Gambar -->
-            <div
-              class="w-full h-full bg-cover bg-center"
-              :style="`background-image: url(${doc.image})`"
-            ></div>
-            <!-- Keterangan -->
-            <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
-              <p class="text-lg font-semibold">{{ doc.title }}</p>
+     <!-- Dokumentasi Section -->
+    <section class="py-16 bg-grey-100 relative overflow-hidden">
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-bold text-center text-primary mb-12">Dokumentasi Kami</h2>
+        <!-- Swiper Container -->
+        <swiper
+          :modules="[Autoplay, Navigation, EffectCoverflow]"
+          :slides-per-view="3"
+          :centered-slides="true"
+          :space-between="30"
+          :loop="true"
+          :autoplay="{
+            delay: 3000,
+            disableOnInteraction: false,
+          }"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }"
+          :effect="'coverflow'"
+          :coverflowEffect="{
+            rotate: 0, // Tidak ada rotasi
+            stretch: 0, // Jarak antara slide
+            depth: 100, // Kedalaman efek 3D
+            modifier: 1, // Modifier untuk mengatur intensitas efek
+            slideShadows: false, // Nonaktifkan bayangan
+          }"
+          class="swiper-container"
+        >
+          <!-- Slide Items -->
+          <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
+            <div class="relative w-full h-96 rounded-lg shadow-xl overflow-hidden">
+              <!-- Gambar -->
+              <div
+                class="w-full h-full bg-cover bg-center"
+                :style="`background-image: url(${doc.image})`"
+              ></div>
+              <!-- Keterangan -->
+              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
+                <p class="text-lg font-semibold">{{ doc.title }}</p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <!-- Navigation Buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </swiper>
-    </div>
-  </section>
+          <!-- Navigation Buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </swiper>
+      </div>
+    </section>
 
     <!-- Program Section -->
     <section class="py-16 bg-white">
@@ -189,9 +189,17 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import Logo from '@/assets/logo/logo.png';
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
-import Logo from '@/assets/logo/logo.png'
+
+// Impor gambar untuk Hero Section
+import image1 from '@/assets/images/1.jpg'
+import image2 from '@/assets/images/2.jpg'
+import image3 from '@/assets/images/3.jpg'
+import image4 from '@/assets/images/4.jpg'
+
+// Impor gambar untuk Dokumentasi
 import doc1 from '@/assets/images/doc1.png'
 import doc2 from '@/assets/images/doc2.png'
 import doc3 from '@/assets/images/doc3.png'
@@ -199,16 +207,8 @@ import doc4 from '@/assets/images/doc4.png'
 import doc5 from '@/assets/images/doc5.png'
 import doc6 from '@/assets/images/doc6.png'
 
-const images = ['/images/1.jpg', '/images/2.jpg', '/images/3.jpg', '/images/4.jpg']
-const dokumentasi = [
-  { image: doc1, title: 'Kegiatan Food Rescue' },
-  { image: doc2, title: 'Distribusi Makanan' },
-  { image: doc3, title: 'Edukasi Masyarakat' },
-  { image: doc4, title: 'Kegiatan Sosial' },
-  { image: doc5, title: 'Pelatihan Masyarakat' },
-  { image: doc6, title: 'Bantuan Petani Tanyoe' }
-]
-
+// Data untuk Hero Section
+const images = [image1, image2, image3, image4]
 const currentImageIndex = ref(0)
 let intervalId = null
 
@@ -233,6 +233,16 @@ onUnmounted(() => {
     clearInterval(intervalId)
   }
 })
+
+// Data untuk Dokumentasi
+const dokumentasi = [
+  { image: doc1, title: 'Kegiatan Food Rescue' },
+  { image: doc2, title: 'Distribusi Makanan' },
+  { image: doc3, title: 'Edukasi Masyarakat' },
+  { image: doc4, title: 'Kegiatan Sosial' },
+  { image: doc5, title: 'Pelatihan Masyarakat' },
+  { image: doc6, title: 'Bantuan Petani Tanyoe' },
+]
 </script>
 
 <style scoped>
@@ -250,19 +260,20 @@ onUnmounted(() => {
 }
 
 /* Efek untuk slide samping */
-.scale-90 {
-  transform: scale(0.9);
+.swiper-slide {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.5; /* Opacity untuk slide samping */
+  filter: blur(2px); /* Efek buram untuk slide samping */
 }
 
-.opacity-80 {
-  opacity: 0.8;
+.swiper-slide-active {
+  transform: scale(1); /* Skala normal untuk slide aktif */
+  opacity: 1; /* Opacity penuh untuk slide aktif */
+  filter: blur(0); /* Hilangkan efek buram untuk slide aktif */
 }
 
-.scale-100 {
-  transform: scale(1);
-}
-
-.opacity-100 {
-  opacity: 1;
+.swiper-slide-prev,
+.swiper-slide-next {
+  transform: scale(0.9); /* Skala lebih kecil untuk slide samping */
 }
 </style>
