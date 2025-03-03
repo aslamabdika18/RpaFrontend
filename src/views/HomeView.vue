@@ -73,12 +73,12 @@
         <!-- Swiper Container -->
         <swiper
           :modules="[Autoplay, Navigation, EffectCoverflow]"
-          :slides-per-view="3"
+          :slides-per-view="2"
           :centered-slides="true"
           :space-between="30"
           :loop="true"
           :autoplay="{
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false,
           }"
           :navigation="{
