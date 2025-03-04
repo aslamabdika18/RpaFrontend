@@ -1,8 +1,8 @@
 <template>
   <nav
     :class="{
-      'text-white font-bold text-xl opacity-80 shadow-md': !isScrolled,
-      'bg-primary bg-opacity-80 text-white font-bold shadow-md text-xl': isScrolled,
+      'text-white font-bold text-lg opacity-80 shadow-md': !isScrolled,
+      'bg-primary bg-opacity-80 text-white font-bold shadow-md text-lg': isScrolled,
       'p-4': true,
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300': true
     }"
@@ -10,13 +10,13 @@
     <div class="container mx-auto flex justify-between items-center">
       <div
         :class="{
-          'text-2xl font-bold text-white hover:text-green-100 transition-colors duration-300': !isScrolled,
-          'text-2xl font-bold text-white hover:text-green-300 transition-colors duration-300': isScrolled
+          'text-lg font-bold text-white hover:text-green-100 transition-colors duration-300': !isScrolled,
+          'text-lg font-bold text-white hover:text-green-300 transition-colors duration-300': isScrolled
         }"
       >
-      <div class="p-4 bg-white rounded-xl shadow-md w-fit mx-auto">
+      <div class="p-3 bg-white rounded-lg shadow-md w-fit mx-auto">
         <router-link to="/">
-          <img :src="Logo" alt="Logo" class="h-12" />
+          <img :src="Logo" alt="Logo" class="h-8" />
         </router-link>
       </div>
       </div>
