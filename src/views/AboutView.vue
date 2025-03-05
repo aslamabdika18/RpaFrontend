@@ -133,6 +133,54 @@
           </div>
         </div>
       </div>
+      <!-- Legalitas Section -->
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">Legalitas</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Akta Notaris -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Akta Notaris</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Akta Notaris YASIR ARFAN S.T., S.H., M.Kn. dengan Nomor Pendaftaran
+              <strong>5024100311100173</strong>.
+            </p>
+          </div>
+
+          <!-- Card 2: Keputusan Menteri Hukum dan HAM -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-balance-scale"></i>
+            </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Keputusan Menteri Hukum dan HAM</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Keputusan Menteri Hukum dan Hak Asasi Manusia Republik Indonesia tanggal
+              <strong>03 Oktober 2024</strong>, nomor
+              <strong>AHU-0024689.AH.01.12.Tahun 2024</strong>.
+            </p>
+          </div>
+
+          <!-- Card 3: Yayasan Rumoh Pangan Aceh -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Yayasan Rumoh Pangan Aceh</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Yayasan Rumoh Pangan Aceh berdiri sejak <strong>Juni 2024</strong>, bergerak di bidang
+              sosial, kemanusiaan, lingkungan, dan keagamaan.
+            </p>
+          </div>
+        </div>
+      </div>
       <!-- Contact Section -->
       <div class="bg-white rounded-xl shadow-lg p-8">
         <h2 class="text-3xl font-bold text-primary text-center mb-8">Hubungi Kami</h2>
