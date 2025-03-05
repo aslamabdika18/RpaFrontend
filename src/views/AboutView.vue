@@ -1,73 +1,138 @@
 <template>
   <div class="min-h-screen bg-gradient-to-b from-secondary to-white py-16">
     <!-- Hero Section -->
-    <div class="container mx-auto px-4 mt-16">
-      <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Tentang Kami</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Rumoh Pangan Aceh (RPA) adalah sebuah lembaga yang bergerak di bidang sosial untuk membantu mengurangi kesenjangan pangan di masyarakat Aceh.
+    <h1 class="text-4xl md:text-5xl font-bold text-white text-center mb-6 mt-16">Tentang Kami</h1>
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16 bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-bold text-primary mb-4">Sejarah Rumoh Pangan Aceh</h2>
+        <p class="text-xl text-justify normal-case text-gray-600 max-w-5xl mx-auto leading-relaxed">
+          Rumoh Pangan Aceh (RPA) adalah lembaga non-profit yang berkomitmen untuk meningkatkan
+          ketahanan pangan (food security) di Aceh melalui pendekatan berkelanjutan. Kami mendukung
+          petani lokal dalam memproduksi hasil pertanian dengan menerapkan sistem pertanian yang
+          berkelanjutan (sustainable agriculture) serta membantu mereka mengakses pasar yang adil
+          agar memperoleh harga jual yang layak. Selain itu, RPA juga berperan sebagai penghubung
+          antara masyarakat yang memiliki surplus makanan dengan mereka yang membutuhkan, guna
+          mengurangi susut dan sisa pangan (food loss and waste reduction). Kami juga aktif dalam
+          mengedukasi masyarakat mengenai pentingnya konsumsi makanan bergizi serta memastikan akses
+          terhadap makanan sehat dan bernutrisi bagi mereka yang membutuhkan
         </p>
       </div>
 
       <!-- Vision & Mission -->
       <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300"
+        >
           <h2 class="text-2xl font-bold text-primary mb-4">Visi</h2>
-          <p class="text-gray-600 leading-relaxed">
-            Menciptakan komunitas di mana setiap orang mempunyai akses terhadap makanan yang cukup dan bergizi dengan mengedepankan keberlanjutan sosial dan lingkungan.
+          <p class="text-gray-600 normal-case leading-relaxed">
+            Menciptakan komunitas di mana setiap orang mempunyai akses terhadap makanan yang cukup
+            dan bergizi dengan mengedepankan keberlanjutan sosial dan lingkungan.
           </p>
         </div>
-        <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+        <div
+          class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300"
+        >
           <h2 class="text-2xl font-bold text-primary mb-4">Misi</h2>
-          <ul class="space-y-3 text-gray-600">
+          <ul class="space-y-3 normal-case text-gray-600">
             <li class="flex items-start">
               <span class="text-primary mr-2">•</span>
-              Mengurangi kesenjangan pangan di masyarakat Aceh
+              Mengurangi kesenjangan pangan di masyarakat Aceh. RPA berperan sebagai penghubung
+              antara masyarakat yang memiliki surplus makanan dengan mereka yang membutuhkan.
             </li>
             <li class="flex items-start">
               <span class="text-primary mr-2">•</span>
-              Memberikan edukasi kepada masyarakat tentang makanan sehat dan bergizi
+              Memberikan edukasi kepada masyarakat tentang makanan sehat dan bergizi dalam mengatasi
+              permasalahan stunting dan gizi buruk lainnya di Aceh.
             </li>
             <li class="flex items-start">
               <span class="text-primary mr-2">•</span>
-              Memberikan program pengembangan untuk peningkatan kesejahteraan petani, nelayan, peternak dan usaha kecil
+              Memberikan program pengembangan untuk peningkatan kesejahteraan petani, nelayan,
+              peternak dan usaha kecil lainnya di Aceh.
             </li>
             <li class="flex items-start">
               <span class="text-primary mr-2">•</span>
-              Mengurangi sampah makanan dan meningkatkan efisiensi penggunaan sumber daya pangan
+              Mengurangi sampah makanan, berdampak positif bagi lingkungan dan meningkatkan
+              efisiensi penggunaan sumber daya pangan.
             </li>
           </ul>
         </div>
       </div>
+      <!-- SDGs Priority Section -->
+      <div class="bg-white rounded-xl shadow-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold text-primary mb-6">SDGs Priority</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1: Mengakhiri Kelaparan -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Mengakhiri Kelaparan</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Mencapai ketahanan pangan, meningkatkan nutrisi, dan menurunkan angka stunting serta
+              mendorong pertanian berkelanjutan.
+            </p>
+          </div>
 
-      <!-- Programs -->
-      <div class="mb-16">
-        <h2 class="text-3xl font-bold text-secondary text-center mb-8">Program Kami</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="bg-primary h-2"></div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-primary mb-3">Food Rescue</h3>
-              <p class="text-gray-600">Upaya penyelamatan surplus makanan dari industri makanan untuk dibagikan kepada masyarakat pra-sejahtera di Banda Aceh.</p>
+          <!-- Card 2: Kesehatan dan Kesejahteraan -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-heartbeat"></i>
             </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Kesehatan dan Kesejahteraan</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Pemenuhan kesehatan dan kesejahteraan masyarakat melalui akses makanan sehat dan
+              bergizi.
+            </p>
           </div>
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="bg-primary h-2"></div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-primary mb-3">Sedekah Sayur</h3>
-              <p class="text-gray-600">Program membantu petani dalam menjual hasil panennya dengan harga yang layak dan membagikannya kepada masyarakat yang membutuhkan.</p>
+
+          <!-- Card 3: Pola Produksi dan Konsumsi Bertanggung Jawab -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-recycle"></i>
             </div>
+            <h3 class="font-semibold text-gray-700 mb-2">
+              Pola Produksi dan Konsumsi Bertanggung Jawab
+            </h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Upaya mengurangi sampah dan kehilangan pangan yang berdampak pada emisi gas rumah
+              kaca.
+            </p>
           </div>
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="bg-primary h-2"></div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-primary mb-3">Sharing Session</h3>
-              <p class="text-gray-600">Edukasi dan diskusi dengan para ahli tentang pertanian, ketahanan pangan, dan pembangunan networking.</p>
+
+          <!-- Card 4: Membantu Petani dan UMKM -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-tractor"></i>
             </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Membantu Petani dan UMKM</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Membantu petani, peternak, dan UMKM Aceh untuk bertumbuh dan berkembang.
+            </p>
+          </div>
+
+          <!-- Card 5: Mengurangi Sampah Makanan -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 transform hover:scale-105 transition-transform duration-300"
+          >
+            <div class="text-primary text-2xl mb-4">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+            <h3 class="font-semibold text-gray-700 mb-2">Mengurangi Sampah Makanan</h3>
+            <p class="text-gray-600 normal-case leading-relaxed">
+              Mengurangi susut dan sisa pangan untuk meningkatkan efisiensi penggunaan sumber daya
+              pangan.
+            </p>
           </div>
         </div>
       </div>
-
       <!-- Contact Section -->
       <div class="bg-white rounded-xl shadow-lg p-8">
         <h2 class="text-3xl font-bold text-primary text-center mb-8">Hubungi Kami</h2>
