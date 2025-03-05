@@ -4,9 +4,7 @@
       <div class="max-w-3xl mx-auto">
         <!-- Header Section -->
         <div class="text-center mb-12 mt-16">
-          <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-lg">
-            Donasi untuk Kebaikan
-          </h1>
+          <h1 class="text-5xl font-bold text-white mb-4 drop-shadow-lg">Donasi untuk Kebaikan</h1>
           <p class="text-xl text-white mb-8 drop-shadow">
             Pilih metode pembayaran yang Anda inginkan
           </p>
@@ -22,7 +20,7 @@
                 'flex items-center justify-center gap-2 py-3 px-6 rounded-xl transition-all duration-300',
                 activeMethod === 'transfer'
                   ? 'bg-primary text-white shadow-lg scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
               ]"
             >
               <i class="fas fa-credit-card text-lg"></i>
@@ -34,7 +32,7 @@
                 'flex items-center justify-center gap-2 py-3 px-6 rounded-xl transition-all duration-300',
                 activeMethod === 'qr'
                   ? 'bg-primary text-white shadow-lg scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
               ]"
             >
               <i class="fas fa-qrcode text-lg"></i>
@@ -66,9 +64,7 @@
                     <template v-if="copiedAccount === bank.account">
                       <i class="fas fa-check"></i> Tersalin
                     </template>
-                    <template v-else>
-                      <i class="fas fa-copy"></i> Salin
-                    </template>
+                    <template v-else> <i class="fas fa-copy"></i> Salin </template>
                   </button>
                 </div>
                 <p class="text-primary font-medium">a.n. RPA</p>
@@ -80,7 +76,9 @@
           <div v-if="activeMethod === 'qr'" class="bg-white rounded-xl shadow-md p-8 text-center">
             <h3 class="text-2xl font-bold text-primary mb-6">QRIS</h3>
             <div class="flex justify-center mb-6">
-              <div class="w-64 h-64 border-2 border-gray-200 rounded-xl flex items-center justify-center bg-gray-50">
+              <div
+                class="w-64 h-64 border-2 border-gray-200 rounded-xl flex items-center justify-center bg-gray-50"
+              >
                 <i class="fas fa-qrcode text-8xl text-primary"></i>
               </div>
             </div>
@@ -128,25 +126,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const activeMethod = ref('transfer');
-const copiedAccount = ref('');
+const activeMethod = ref('transfer')
+const copiedAccount = ref('')
 
 const banks = [
   { name: 'BCA', account: '1234567890' },
-  { name: 'Mandiri', account: '0987654321' }
-];
+  { name: 'Mandiri', account: '0987654321' },
+]
 
 const copyToClipboard = async (text) => {
   try {
-    await navigator.clipboard.writeText(text);
-    copiedAccount.value = text;
+    await navigator.clipboard.writeText(text)
+    copiedAccount.value = text
     setTimeout(() => {
-      copiedAccount.value = '';
-    }, 2000);
+      copiedAccount.value = ''
+    }, 2000)
   } catch {
-    alert('Gagal menyalin nomor rekening');
+    alert('Gagal menyalin nomor rekening')
   }
-};
+}
 </script>

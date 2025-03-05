@@ -66,7 +66,7 @@
       </div>
     </section>
 
-     <!-- Dokumentasi Section -->
+    <!-- Dokumentasi Section -->
     <section class="py-16 bg-grey-100 relative overflow-hidden">
       <div class="container mx-auto px-4 relative">
         <!-- Swiper Container -->
@@ -115,12 +115,12 @@
         </swiper>
       </div>
     </section>
-<!-- Impact Section -->
-      <ImpactCompo/>
+    <!-- Impact Section -->
+    <ImpactCompo />
     <!-- Program Section -->
-      <ProgramCompo/>
+    <ProgramCompo />
     <!-- Partnership Section -->
-      <PartnersCompo/>
+    <PartnersCompo />
     <!-- Call to Action -->
     <section class="py-16 bg-primary text-white text-center">
       <div class="container mx-auto px-4">
@@ -148,7 +148,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import PartnersCompo from '@/components/CompoPatners.vue'
 import ProgramCompo from '@/components/CompoPrograms.vue'
 import ImpactCompo from '@/components/CompoImpact.vue'
-import Logo from '@/assets/logo/logo.png';
+import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
 
@@ -220,7 +220,9 @@ const dokumentasi = [
 
 /* Efek untuk slide samping */
 .swiper-slide {
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition:
+    transform 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
   opacity: 0.5; /* Opacity untuk slide samping */
   filter: blur(2px); /* Efek buram untuk slide samping */
 }

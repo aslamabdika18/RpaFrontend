@@ -46,8 +46,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { Line } from 'vue-chartjs';
+import { ref } from 'vue'
+import { Line } from 'vue-chartjs'
 import {
   Chart as ChartJS,
   Title,
@@ -57,21 +57,13 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
-} from 'chart.js';
+} from 'chart.js'
 
 // Register Chart.js components
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement
-);
+ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
 
 // State untuk menyimpan grafik yang aktif
-const activeChart = ref('food'); // Default: Makanan Diselamatkan
+const activeChart = ref('food') // Default: Makanan Diselamatkan
 
 // Data untuk setiap grafik
 const chartData = {
@@ -108,10 +100,10 @@ const chartData = {
       },
     ],
   },
-};
+}
 
 // Data grafik yang aktif
-const activeChartData = ref(chartData[activeChart.value]);
+const activeChartData = ref(chartData[activeChart.value])
 
 // Options untuk Line Chart
 const lineChartOptions = ref({
@@ -127,13 +119,13 @@ const lineChartOptions = ref({
       text: 'Perkembangan Dampak Kami',
     },
   },
-});
+})
 
 // Fungsi untuk mengubah grafik yang aktif
 const setActiveChart = (chartType) => {
-  activeChart.value = chartType;
-  activeChartData.value = chartData[chartType];
-};
+  activeChart.value = chartType
+  activeChartData.value = chartData[chartType]
+}
 </script>
 
 <style>

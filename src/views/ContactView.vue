@@ -4,47 +4,51 @@
       <div class="max-w-2xl mx-auto">
         <h1 class="text-4xl font-bold text-primary text-center mb-6 mt-16">Kontak Kami</h1>
         <p class="text-xl text-gray-600 text-center mb-12">
-          Kami ingin mendengar dari Anda! Hubungi kami untuk pertanyaan, kerjasama, atau informasi lebih lanjut tentang program-program RPA.
+          Kami ingin mendengar dari Anda! Hubungi kami untuk pertanyaan, kerjasama, atau informasi
+          lebih lanjut tentang program-program RPA.
         </p>
 
         <!-- Contact Information -->
         <!-- <div class="grid md:grid-cols-2 gap-8 mb-12"> -->
-          <div class="bg-white p-8 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-bold text-primary mb-6 ">Informasi Kontak</h2>
-            <div class="space-y-4">
-              <div class="flex items-start space-x-4">
-                <span class="text-primary text-xl">📍</span>
-                <div>
-                  <p class="font-medium text-gray-700">Alamat</p>
-                  <p class="text-gray-600">Komplek Anuek Laot Residence, Block D, Nomor 32. Meunasah Papeun, Krueng Barona Jaya, Aceh Besar</p>
-                </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <h2 class="text-2xl font-bold text-primary mb-6">Informasi Kontak</h2>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4">
+              <span class="text-primary text-xl">📍</span>
+              <div>
+                <p class="font-medium text-gray-700">Alamat</p>
+                <p class="text-gray-600">
+                  Komplek Anuek Laot Residence, Block D, Nomor 32. Meunasah Papeun, Krueng Barona
+                  Jaya, Aceh Besar
+                </p>
               </div>
-              <div class="flex items-start space-x-4">
-                <span class="text-primary text-xl">📱</span>
-                <div>
-                  <p class="font-medium text-gray-700">Telepon</p>
-                  <p class="text-gray-600">+62 8527 7600 700</p>
-                </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <span class="text-primary text-xl">📱</span>
+              <div>
+                <p class="font-medium text-gray-700">Telepon</p>
+                <p class="text-gray-600">+62 8527 7600 700</p>
               </div>
-              <div class="flex items-start space-x-4">
-                <span class="text-primary text-xl">📧</span>
-                <div>
-                  <p class="font-medium text-gray-700">Email</p>
-                  <p class="text-gray-600">rumohpanganaceh@gmail.com</p>
-                </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <span class="text-primary text-xl">📧</span>
+              <div>
+                <p class="font-medium text-gray-700">Email</p>
+                <p class="text-gray-600">rumohpanganaceh@gmail.com</p>
               </div>
-              <div class="flex items-start space-x-4">
-                <span class="text-primary text-xl">📷</span>
-                <div>
-                  <p class="font-medium text-gray-700">Instagram</p>
-                  <p class="text-gray-600">@rumohpanganaceh</p>
-                </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <span class="text-primary text-xl">📷</span>
+              <div>
+                <p class="font-medium text-gray-700">Instagram</p>
+                <p class="text-gray-600">@rumohpanganaceh</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Contact Form -->
-          <!-- <div class="bg-white p-8 rounded-lg shadow-lg">
+        <!-- Contact Form -->
+        <!-- <div class="bg-white p-8 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-primary mb-6">Kirim Pesan</h2>
             <form @submit.prevent="submitForm" class="space-y-6">
               <div>

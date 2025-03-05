@@ -14,4 +14,3 @@ import CompoFooterVue from './components/CompoFooter.vue'
     <CompoFooterVue />
   </div>
 </template>
-
