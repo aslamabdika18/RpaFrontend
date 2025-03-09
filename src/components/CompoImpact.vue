@@ -1,6 +1,6 @@
 <template>
   <!-- Impact Section -->
-  <section class="py-16 bg-white">
+  <section class="py-16 px-10 bg-white rounded-lg shadow-lg">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-bold text-center text-primary mb-12">Our Impact</h2>
 
