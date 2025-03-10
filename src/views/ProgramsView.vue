@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-grey-100">
+  <div class="min-h-screen bg-white">
     <!-- Header Section -->
     <div class="bg-primary text-white py-12 text-center">
       <h1 class="text-4xl font-bold mt-16">Program Kami</h1>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Detail Program Section -->
-    <div v-if="selectedProgram" class="container mx-auto px-4 py-12 max-w-7xl">
+    <div v-if="selectedProgram" id="detail-section" class="container mx-auto px-4 py-12 max-w-7xl">
       <div class="bg-secondary rounded-lg shadow-lg p-8">
         <h2 class="text-2xl font-bold text-black">{{ selectedProgram.title }}</h2>
         <p class="mt-4 text-gray-700">{{ selectedProgram.description }}</p>
@@ -58,16 +58,12 @@
         </div>
       </div>
     </div>
-    <div class="container mx-auto px-4 py-12 max-w-7xl">
-    <CompoImpact />
-  </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, nextTick } from "vue";
 import ProgramCard from "@/components/ProgramCard.vue";
-import CompoImpact from "@/components/CompoImpact.vue";
 
 // State untuk program yang dipilih
 const selectedProgram = ref(null);
@@ -120,9 +116,17 @@ const programs = [
   },
 ];
 
-// Method untuk menampilkan detail program
+// Method untuk menampilkan detail program dan scroll ke detail
 const handleOpenDetail = (id) => {
   selectedProgram.value = programs.find((p) => p.id === id);
+
+  // Gunakan nextTick untuk memastikan DOM sudah di-render sebelum melakukan scroll
+  nextTick(() => {
+    const detailSection = document.getElementById("detail-section");
+    if (detailSection) {
+      detailSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
 };
 </script>
 

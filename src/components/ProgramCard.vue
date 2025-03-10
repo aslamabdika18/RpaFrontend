@@ -57,7 +57,3 @@ const openDetail = () => {
   emit('open-detail', props.id)
 }
 </script>
-
-<style scoped>
-/* Custom styles can be added here if needed */
-</style>
