@@ -1,16 +1,13 @@
 <template>
   <div class="bg-secondary rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full">
-    <!-- Konten Card -->
     <div class="p-6">
       <h2 class="text-2xl font-bold text-black">{{ title }}</h2>
       <p class="mt-4 text-gray-700">{{ description }}</p>
     </div>
-
-    <!-- Tombol Lihat Detail -->
     <div class="p-6 flex justify-center">
       <button
-        class="bg-gradient-to-r from-tertiary to-yellow-400 text-black font-semibold py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-tertiary transition-all duration-500 flex items-center justify-center gap-2 group"
         @click="openDetail"
+        class="bg-gradient-to-r from-tertiary to-yellow-400 text-black font-semibold py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-tertiary transition-all duration-500 flex items-center justify-center gap-2 group"
       >
         <span class="group-hover:translate-x-1 transition-transform duration-300">Lihat Detail</span>
         <svg
@@ -33,7 +30,6 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue'
 
-// Props
 const props = defineProps({
   title: {
     type: String,
@@ -49,10 +45,8 @@ const props = defineProps({
   },
 })
 
-// Emits
 const emit = defineEmits(['open-detail'])
 
-// Method untuk membuka detail
 const openDetail = () => {
   emit('open-detail', props.id)
 }
