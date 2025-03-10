@@ -1,19 +1,20 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white flex flex-col justify-center items-center">
     <!-- Header Section -->
-    <header class="bg-primary text-white py-12 text-center">
+    <header class="bg-primary text-white py-12 text-center w-full">
       <h1 class="text-4xl font-bold mt-16">Program Kami</h1>
       <p class="mt-4 text-lg">Menjembatani mereka yang berkelebihan dengan yang berkebutuhan</p>
     </header>
 
     <!-- Program Cards Section -->
-    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-7xl">
+    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-center max-w-7xl">
       <ProgramCard
         v-for="program in programs"
         :key="program.id"
         :title="program.title"
         :description="program.description"
         :id="program.id"
+        :icon="program.icon"
         @open-detail="handleOpenDetail"
       />
     </section>
@@ -53,6 +54,7 @@ const programs = [
       "Mendistribusikan makanan kepada masyarakat yang membutuhkan.",
       "Edukasi tentang pentingnya mengurangi pemborosan makanan.",
     ],
+    icon: "utensils",
   },
   {
     id: 2,
@@ -63,6 +65,7 @@ const programs = [
       "Buy or Donate: Membeli atau menyumbangkan hasil pertanian.",
       "Sharing Session: Diskusi tentang pertanian berkelanjutan.",
     ],
+    icon: "tractor",
   },
   {
     id: 3,
@@ -73,6 +76,7 @@ const programs = [
       "Distribusi makanan sehat kepada masyarakat prasejahtera.",
       "Kampanye tentang pentingnya makanan bergizi.",
     ],
+    icon: "apple-alt",
   },
   {
     id: 4,
@@ -83,6 +87,7 @@ const programs = [
       "Ramadhan Ceria: Berbagi makanan berbuka puasa.",
       "Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.",
     ],
+    icon: "gift",
   },
 ];
 

@@ -1,27 +1,16 @@
 <template>
-  <div class="bg-secondary rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full">
+  <div
+    class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full text-center">
     <div class="p-6">
+      <i :class="`fas fa-${icon} text-4xl mb-4 text-primary`"></i>
       <h2 class="text-2xl font-bold text-black">{{ title }}</h2>
       <p class="mt-4 text-gray-700">{{ description }}</p>
     </div>
     <div class="p-6 flex justify-center">
-      <button
-        @click="openDetail"
-        class="bg-gradient-to-r from-tertiary to-yellow-400 text-black font-semibold py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-tertiary transition-all duration-500 flex items-center justify-center gap-2 group"
-      >
+      <button @click="openDetail"
+        class="bg-gradient-to-r from-primary to-secondary text-black font-semibold py-3 px-6 rounded-lg hover:from-secondary hover:to-primary transition-all duration-500 flex items-center justify-center gap-2 group">
         <span class="group-hover:translate-x-1 transition-transform duration-300">Lihat Detail</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 group-hover:rotate-90 transition-transform duration-300"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        <i class="fa-regular fa-circle-right h-5 w-5 group-hover:rotate-90 transition-transform duration-300"></i>
       </button>
     </div>
   </div>
@@ -41,6 +30,10 @@ const props = defineProps({
   },
   id: {
     type: Number,
+    required: true,
+  },
+  icon: {
+    type: String,
     required: true,
   },
 })
