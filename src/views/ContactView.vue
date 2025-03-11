@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen bg-yellow-100 py-16 flex items-center justify-center">
+  <div class="min-h-screen bg-gradient-to-br from-primary via-secondary to-tertiary py-16 flex items-center justify-center">
     <div class="container mx-auto px-4">
       <div class="max-w-2xl mx-auto">
-        <h1 class="text-4xl font-bold text-primary text-center mb-6 mt-16">Kontak Kami</h1>
-        <p class="text-xl text-gray-600 text-center mb-12">
+        <h1 class="text-4xl font-bold text-white drop-shadow-lg text-center mb-6 mt-16">Kontak Kami</h1>
+        <p class="text-xl text-white drop-shadow-lg text-center mb-12">
           Kami ingin mendengar dari Anda! Hubungi kami untuk pertanyaan, kerjasama, atau informasi
           lebih lanjut tentang program-program RPA.
         </p>
