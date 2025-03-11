@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-rpa-light min-h-screen">
+  <div class="min-h-screen">
     <!-- Hero Section -->
     <section class="relative h-screen">
       <div class="absolute inset-0">
@@ -18,7 +18,7 @@
       <!-- Content -->
       <div class="relative h-full flex items-center justify-center">
         <div class="text-center text-white px-4">
-          <div class="p-7 bg-white rounded-xl shadow-md w-fit mx-auto mb-8">
+          <div class="p-7 bg-white rounded-xl shadow-md w-fit mx-auto mb-8 mt-16">
             <img :src="Logo" alt="RPA Logo" class="mx-auto w-48" />
           </div>
           <h1 class="text-5xl font-bold mb-6">
@@ -118,7 +118,18 @@
     <!-- Impact Section -->
     <ImpactCompo />
     <!-- Program Section -->
-    <ProgramCompo />
+    <!-- Program Cards Section -->
+    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-center max-w-7xl">
+      <ProgramCard
+        v-for="program in programs"
+        :key="program.id"
+        :title="program.title"
+        :description="program.description"
+        :id="program.id"
+        :icon="program.icon"
+        @open-detail="handleOpenDetail"
+      />
+    </section>
     <!-- Partnership Section -->
     <PartnersCompo />
     <!-- Call to Action -->
@@ -145,8 +156,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import ProgramCard from "@/components/ProgramCard.vue";
 import PartnersCompo from '@/components/CompoPatners.vue'
-import ProgramCompo from '@/components/CompoPrograms.vue'
 import ImpactCompo from '@/components/CompoImpact.vue'
 import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
@@ -202,6 +213,52 @@ const dokumentasi = [
   { image: doc5, title: 'Pelatihan Masyarakat' },
   { image: doc6, title: 'Bantuan Petani Tanyoe' },
 ]
+const programs = [
+  {
+    id: 1,
+    title: "Pengurangan Susut dan Sisa Pangan",
+    description: "Program ini bertujuan untuk mengurangi food loss dan waste dengan menyelamatkan makanan yang masih layak konsumsi.",
+    details: [
+      "Mengumpulkan makanan dari restoran, supermarket, dan produsen makanan.",
+      "Mendistribusikan makanan kepada masyarakat yang membutuhkan.",
+      "Edukasi tentang pentingnya mengurangi pemborosan makanan.",
+    ],
+    icon: "utensils",
+  },
+  {
+    id: 2,
+    title: "Support Petani Lokal",
+    description: "Kami mendukung petani lokal dengan berbagai program seperti Farm Tour, Buy or Donate, dan Sharing Session.",
+    details: [
+      "Farm Tour: Mengunjungi kebun petani lokal.",
+      "Buy or Donate: Membeli atau menyumbangkan hasil pertanian.",
+      "Sharing Session: Diskusi tentang pertanian berkelanjutan.",
+    ],
+    icon: "tractor",
+  },
+  {
+    id: 3,
+    title: "Gizi Sehat untuk Masyarakat",
+    description: "Program ini fokus pada edukasi gizi dan distribusi makanan sehat kepada masyarakat yang membutuhkan.",
+    details: [
+      "Edukasi gizi untuk ibu hamil dan menyusui.",
+      "Distribusi makanan sehat kepada masyarakat prasejahtera.",
+      "Kampanye tentang pentingnya makanan bergizi.",
+    ],
+    icon: "apple-alt",
+  },
+  {
+    id: 4,
+    title: "Program Spesial",
+    description: "Program khusus seperti RPA Goes to School, Ramadhan Ceria, dan Kurban Hingga Pelosok.",
+    details: [
+      "RPA Goes to School: Edukasi tentang pertanian dan gizi di sekolah.",
+      "Ramadhan Ceria: Berbagi makanan berbuka puasa.",
+      "Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.",
+    ],
+    icon: "gift",
+  },
+];
 </script>
 
 <style scoped>

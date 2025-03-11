@@ -1,45 +1,53 @@
 <template>
-  <div
-    class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full text-center">
-    <div class="p-6">
-      <i :class="`fas fa-${icon} text-4xl mb-4 text-primary`"></i>
-      <h2 class="text-2xl font-bold text-black">{{ title }}</h2>
+  <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col min-h-96">
+    <!-- Bagian atas card (ikon, judul, dan deskripsi) -->
+    <div class="flex flex-col items-center text-center flex-grow">
+      <!-- Ikon -->
+      <i :class="`fas fa-${icon} text-4xl text-primary mb-4`"></i> <!-- Ikon di atas, dengan margin-bottom -->
+      <!-- Judul -->
+      <h3 class="text-xl font-bold">{{ title }}</h3>
+      <!-- Deskripsi -->
       <p class="mt-4 text-gray-700">{{ description }}</p>
     </div>
-    <div class="p-6 flex justify-center">
-      <button @click="openDetail"
-        class="bg-gradient-to-r from-primary to-secondary text-black font-semibold py-3 px-6 rounded-lg hover:from-secondary hover:to-primary transition-all duration-500 flex items-center justify-center gap-2 group">
-        <span class="group-hover:translate-x-1 transition-transform duration-300">Lihat Detail</span>
-        <i class="fa-regular fa-circle-right h-5 w-5 group-hover:rotate-90 transition-transform duration-300"></i>
+
+    <!-- Detail program (muncul ketika tombol Detail diklik) -->
+    <div v-if="showDetails" class="mt-6 mb-6">
+      <h4 class="text-lg font-bold text-black">Detail Program</h4>
+      <ul class="mt-2 list-disc list-inside text-gray-700">
+        <li v-for="(detail, index) in details" :key="index">
+          {{ detail }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tombol Detail -->
+    <div class="mt-auto flex justify-center">
+      <button
+        @click="toggleDetail"
+        class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-300"
+      >
+        {{ showDetails ? "Tutup Detail" : "Detail" }}
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  id: {
-    type: Number,
-    required: true,
-  },
-  icon: {
-    type: String,
-    required: true,
-  },
-})
+// Props yang diterima oleh komponen
+defineProps({
+  title: String,
+  description: String,
+  details: Array,
+  icon: String,
+});
 
-const emit = defineEmits(['open-detail'])
+// State untuk menampilkan detail program
+const showDetails = ref(false);
 
-const openDetail = () => {
-  emit('open-detail', props.id)
-}
+// Fungsi untuk toggle detail program
+const toggleDetail = () => {
+  showDetails.value = !showDetails.value;
+};
 </script>

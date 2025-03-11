@@ -7,43 +7,23 @@
     </header>
 
     <!-- Program Cards Section -->
-    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-center max-w-7xl">
+    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start max-w-7xl">
       <ProgramCard
         v-for="program in programs"
         :key="program.id"
         :title="program.title"
         :description="program.description"
-        :id="program.id"
+        :details="program.details"
         :icon="program.icon"
-        @open-detail="handleOpenDetail"
       />
-    </section>
-
-    <!-- Detail Program Section -->
-    <section v-if="selectedProgram" id="detail-section" class="container mx-auto px-4 py-12 max-w-7xl">
-      <div class="bg-secondary rounded-lg shadow-lg p-8">
-        <h2 class="text-2xl font-bold text-black">{{ selectedProgram.title }}</h2>
-        <p class="mt-4 text-gray-700">{{ selectedProgram.description }}</p>
-
-        <div class="mt-8">
-          <h3 class="text-xl font-bold text-black">Detail Program</h3>
-          <ul class="mt-4 list-disc list-inside text-gray-700">
-            <li v-for="(detail, index) in selectedProgram.details" :key="index">
-              {{ detail }}
-            </li>
-          </ul>
-        </div>
-      </div>
     </section>
   </div>
 </template>
 
 <script setup>
-import { ref, nextTick } from "vue";
 import ProgramCard from "@/components/ProgramCard.vue";
 
-const selectedProgram = ref(null);
-
+// Daftar program
 const programs = [
   {
     id: 1,
@@ -90,15 +70,4 @@ const programs = [
     icon: "gift",
   },
 ];
-
-const handleOpenDetail = (id) => {
-  selectedProgram.value = programs.find((p) => p.id === id);
-
-  nextTick(() => {
-    const detailSection = document.getElementById("detail-section");
-    if (detailSection) {
-      detailSection.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-};
 </script>
