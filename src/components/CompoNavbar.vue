@@ -1,7 +1,7 @@
 <template>
   <nav
     :class="{
-      'text-white font-bold text-lg opacity-80 shadow-md': !isScrolled,
+      'text-white font-bold text-lg opacity-80 shadow-md md:py-2': !isScrolled,
       'bg-primary bg-opacity-80 text-white font-bold shadow-md text-lg': isScrolled,
       'p-4': true,
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300': true,
