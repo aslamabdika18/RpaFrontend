@@ -1,3 +1,93 @@
 <template>
-  <h1>Partners</h1>
+  <div class="bg-gradient-to-t from-primary via-secondary to-tertiary">
+    <!-- Header Section -->
+    <div class="text-center text-white px-4 pt-24">
+      <h2 class="text-3xl font-bold text-white mb-4 uppercase drop-shadow-lg">Dokumentasi</h2>
+    </div>
+
+    <!-- Dokumentasi Section -->
+    <section class="py-16 bg-grey-100 relative overflow-hidden">
+      <div class="container mx-auto px-4 relative">
+        <!-- Swiper Container -->
+        <swiper
+          :modules="[Autoplay, Navigation, EffectCoverflow]"
+          :slides-per-view="2"
+          :centered-slides="true"
+          :space-between="30"
+          :loop="true"
+          :autoplay="{
+            delay: 5000,
+            disableOnInteraction: false,
+          }"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }"
+          :effect="'coverflow'"
+          :coverflowEffect="{
+            rotate: 0, // Tidak ada rotasi
+            stretch: 0, // Jarak antara slide
+            depth: 100, // Kedalaman efek 3D
+            modifier: 1, // Modifier untuk mengatur intensitas efek
+            slideShadows: false, // Nonaktifkan bayangan
+          }"
+          class="swiper-container"
+        >
+          <!-- Slide Items -->
+          <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
+            <div class="relative w-full h-96 rounded-lg shadow-xl overflow-hidden">
+              <!-- Gambar -->
+              <div
+                class="w-full h-full bg-cover bg-center"
+                :style="`background-image: url(${doc.image})`"
+              ></div>
+              <!-- Keterangan -->
+              <div class="absolute bottom-0 left-0 right-0 bg-black/80 text-white p-4 text-center">
+                <p class="text-lg font-semibold">{{ doc.title }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+
+          <!-- Navigation Buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </swiper>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <CompoPartners />
+  </div>
 </template>
+
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
+import CompoPartners from '@/components/CompoPartners.vue';
+
+// Impor gambar untuk Dokumentasi
+import doc1 from '@/assets/images/doc1.png';
+import doc2 from '@/assets/images/doc2.png';
+import doc3 from '@/assets/images/doc3.png';
+import doc4 from '@/assets/images/doc4.png';
+import doc5 from '@/assets/images/doc5.png';
+import doc6 from '@/assets/images/doc6.png';
+
+const dokumentasi = [
+  { image: doc1, title: 'Kegiatan Food Rescue' },
+  { image: doc2, title: 'Distribusi Makanan' },
+  { image: doc3, title: 'Edukasi Masyarakat' },
+  { image: doc4, title: 'Kegiatan Sosial' },
+  { image: doc5, title: 'Pelatihan Masyarakat' },
+  { image: doc6, title: 'Bantuan Petani Tanyoe' },
+];
+</script>
+<style scoped>
+.swiper-slide {
+  transition: filter 0.3s ease;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+  filter: blur(4px); /* Efek blur */
+  opacity: 0.7; /* Optional: mengurangi opacity untuk efek tambahan */
+}</style>

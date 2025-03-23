@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white flex flex-col justify-center items-center">
+  <div class="min-h-max bg-white flex flex-col justify-center items-center">
     <!-- Header Section -->
     <header class="bg-primary text-white py-12 text-center w-full">
       <h1 class="text-4xl font-bold mt-16">Program Kami</h1>

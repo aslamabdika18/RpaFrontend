@@ -25,6 +25,12 @@ const router = createRouter({
       component: () => import('../views/ProgramsView.vue'),
     },
     {
+      path: '/program/:id',
+      name: 'ProgramView',
+      component: () => import('../views/ProgramsView.vue'),
+      props: true, // Mengizinkan passing route params sebagai props
+    },
+    {
       path: '/donate',
       name: 'donate',
       component: () => import('../views/DonateView.vue'),

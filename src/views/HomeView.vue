@@ -56,12 +56,16 @@
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center text-primary mb-12">Apa yang Kami Lakukan?</h2>
-        <p class="text-lg text-gray-700 text-center max-w-2xl mx-auto">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem blanditiis aliquid in
-          odit ad officiis eos ea error nisi dolore repellendus officia veritatis sunt facere
-          repellat numquam, fuga consequatur. Praesentium qui repudiandae laudantium, at esse,
-          voluptatum magni corporis voluptatem sed ipsa nemo sequi. Omnis laudantium quod, beatae
-          perspiciatis vero est?
+        <p class="text-lg text-gray-700 leading-relaxed text-justify max-w-2xl mx-auto">
+          Rumoh Pangan Aceh (RPA) berkomitmen untuk meningkatkan ketahanan pangan (food security) di
+          Aceh melalui pendekatan berkelanjutan. Kami mendukung petani lokal dalam memproduksi hasil
+          pertanian dengan menerapkan sistem pertanian yang berkelanjutan (sustainable agriculture)
+          serta membantu mereka mengakses pasar yang adil agar memperoleh harga jual yang layak.
+          Selain itu, RPA juga berperan sebagai penghubung antara masyarakat yang memiliki surplus
+          makanan dengan mereka yang membutuhkan, guna mengurangi susut dan sisa pangan (food loss
+          and waste reduction). Kami juga aktif dalam mengedukasi masyarakat mengenai pentingnya
+          konsumsi makanan bergizi serta memastikan akses terhadap makanan sehat dan bernutrisi bagi
+          mereka yang membutuhkan.
         </p>
       </div>
     </section>
@@ -119,15 +123,16 @@
     <ImpactCompo />
     <!-- Program Section -->
     <!-- Program Cards Section -->
-    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center items-center max-w-7xl">
+    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start max-w-7xl">
       <ProgramCard
         v-for="program in programs"
         :key="program.id"
+        :id="program.id"
         :title="program.title"
         :description="program.description"
-        :id="program.id"
+        :details="program.details"
         :icon="program.icon"
-        @open-detail="handleOpenDetail"
+        :redirectToProgramView="true"
       />
     </section>
     <!-- Partnership Section -->
@@ -156,8 +161,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import ProgramCard from "@/components/ProgramCard.vue";
-import PartnersCompo from '@/components/CompoPatners.vue'
+import ProgramCard from '@/components/ProgramCard.vue'
+import PartnersCompo from '@/components/CompoPartners.vue'
 import ImpactCompo from '@/components/CompoImpact.vue'
 import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
@@ -216,49 +221,53 @@ const dokumentasi = [
 const programs = [
   {
     id: 1,
-    title: "Pengurangan Susut dan Sisa Pangan",
-    description: "Program ini bertujuan untuk mengurangi food loss dan waste dengan menyelamatkan makanan yang masih layak konsumsi.",
+    title: 'Pengurangan Susut dan Sisa Pangan',
+    description:
+      'Program ini bertujuan untuk mengurangi food loss dan waste dengan menyelamatkan makanan yang masih layak konsumsi.',
     details: [
-      "Mengumpulkan makanan dari restoran, supermarket, dan produsen makanan.",
-      "Mendistribusikan makanan kepada masyarakat yang membutuhkan.",
-      "Edukasi tentang pentingnya mengurangi pemborosan makanan.",
+      'Mengumpulkan makanan dari restoran, supermarket, dan produsen makanan.',
+      'Mendistribusikan makanan kepada masyarakat yang membutuhkan.',
+      'Edukasi tentang pentingnya mengurangi pemborosan makanan.',
     ],
-    icon: "utensils",
+    icon: 'utensils',
   },
   {
     id: 2,
-    title: "Support Petani Lokal",
-    description: "Kami mendukung petani lokal dengan berbagai program seperti Farm Tour, Buy or Donate, dan Sharing Session.",
+    title: 'Support Petani Lokal',
+    description:
+      'Kami mendukung petani lokal dengan berbagai program seperti Farm Tour, Buy or Donate, dan Sharing Session.',
     details: [
-      "Farm Tour: Mengunjungi kebun petani lokal.",
-      "Buy or Donate: Membeli atau menyumbangkan hasil pertanian.",
-      "Sharing Session: Diskusi tentang pertanian berkelanjutan.",
+      'Farm Tour: Mengunjungi kebun petani lokal.',
+      'Buy or Donate: Membeli atau menyumbangkan hasil pertanian.',
+      'Sharing Session: Diskusi tentang pertanian berkelanjutan.',
     ],
-    icon: "tractor",
+    icon: 'tractor',
   },
   {
     id: 3,
-    title: "Gizi Sehat untuk Masyarakat",
-    description: "Program ini fokus pada edukasi gizi dan distribusi makanan sehat kepada masyarakat yang membutuhkan.",
+    title: 'Gizi Sehat untuk Masyarakat',
+    description:
+      'Program ini fokus pada edukasi gizi dan distribusi makanan sehat kepada masyarakat yang membutuhkan.',
     details: [
-      "Edukasi gizi untuk ibu hamil dan menyusui.",
-      "Distribusi makanan sehat kepada masyarakat prasejahtera.",
-      "Kampanye tentang pentingnya makanan bergizi.",
+      'Edukasi gizi untuk ibu hamil dan menyusui.',
+      'Distribusi makanan sehat kepada masyarakat prasejahtera.',
+      'Kampanye tentang pentingnya makanan bergizi.',
     ],
-    icon: "apple-alt",
+    icon: 'apple-alt',
   },
   {
     id: 4,
-    title: "Program Spesial",
-    description: "Program khusus seperti RPA Goes to School, Ramadhan Ceria, dan Kurban Hingga Pelosok.",
+    title: 'Program Spesial',
+    description:
+      'Program khusus seperti RPA Goes to School, Ramadhan Ceria, dan Kurban Hingga Pelosok.',
     details: [
-      "RPA Goes to School: Edukasi tentang pertanian dan gizi di sekolah.",
-      "Ramadhan Ceria: Berbagi makanan berbuka puasa.",
-      "Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.",
+      'RPA Goes to School: Edukasi tentang pertanian dan gizi di sekolah.',
+      'Ramadhan Ceria: Berbagi makanan berbuka puasa.',
+      'Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.',
     ],
-    icon: "gift",
+    icon: 'gift',
   },
-];
+]
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
     <!-- Bagian atas card (ikon, judul, dan deskripsi) -->
     <div class="flex flex-col items-center text-center flex-grow">
       <!-- Ikon -->
-      <i :class="`fas fa-${icon} text-4xl text-primary mb-4`"></i> <!-- Ikon di atas, dengan margin-bottom -->
+      <i :class="`fas fa-${icon} text-4xl text-primary mb-4`"></i>
       <!-- Judul -->
       <h3 class="text-xl font-bold">{{ title }}</h3>
       <!-- Deskripsi -->
@@ -11,7 +11,7 @@
     </div>
 
     <!-- Detail program (muncul ketika tombol Detail diklik) -->
-    <div v-if="showDetails" class="mt-6 mb-6">
+    <div v-if="showDetails && !redirectToProgramView" class="mt-6 mb-6">
       <h4 class="text-lg font-bold text-black">Detail Program</h4>
       <ul class="mt-2 list-disc list-inside text-gray-700">
         <li v-for="(detail, index) in details" :key="index">
@@ -23,11 +23,21 @@
     <!-- Tombol Detail -->
     <div class="mt-auto flex justify-center">
       <button
+        v-if="!redirectToProgramView"
         @click="toggleDetail"
         class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-300"
       >
         {{ showDetails ? "Tutup Detail" : "Detail" }}
       </button>
+
+      <!-- Tombol untuk mengarahkan ke ProgramView -->
+      <router-link
+        v-else
+        :to="`/program/${id}`"
+        class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition duration-300"
+      >
+        Detail
+      </router-link>
     </div>
   </div>
 </template>
@@ -37,10 +47,30 @@ import { ref } from "vue";
 
 // Props yang diterima oleh komponen
 defineProps({
-  title: String,
-  description: String,
-  details: Array,
-  icon: String,
+  id: {
+    type: Number,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  details: {
+    type: Array,
+    required: true,
+  },
+  icon: {
+    type: String,
+    required: true,
+  },
+  redirectToProgramView: {
+    type: Boolean,
+    default: false, // Default-nya false (tampilkan detail lokal)
+  },
 });
 
 // State untuk menampilkan detail program
