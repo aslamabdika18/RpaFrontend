@@ -11,6 +11,7 @@
       <ProgramCard
         v-for="program in programs"
         :key="program.id"
+        :id="program.id"
         :title="program.title"
         :description="program.description"
         :details="program.details"
@@ -22,52 +23,7 @@
 
 <script setup>
 import ProgramCard from "@/components/ProgramCard.vue";
+import { programs } from "@/data/programs.js";
 
-// Daftar program
-const programs = [
-  {
-    id: 1,
-    title: "Pengurangan Susut dan Sisa Pangan",
-    description: "Program ini bertujuan untuk mengurangi food loss dan waste dengan menyelamatkan makanan yang masih layak konsumsi.",
-    details: [
-      "Mengumpulkan makanan dari restoran, supermarket, dan produsen makanan.",
-      "Mendistribusikan makanan kepada masyarakat yang membutuhkan.",
-      "Edukasi tentang pentingnya mengurangi pemborosan makanan.",
-    ],
-    icon: "utensils",
-  },
-  {
-    id: 2,
-    title: "Support Petani Lokal",
-    description: "Kami mendukung petani lokal dengan berbagai program seperti Farm Tour, Buy or Donate, dan Sharing Session.",
-    details: [
-      "Farm Tour: Mengunjungi kebun petani lokal.",
-      "Buy or Donate: Membeli atau menyumbangkan hasil pertanian.",
-      "Sharing Session: Diskusi tentang pertanian berkelanjutan.",
-    ],
-    icon: "tractor",
-  },
-  {
-    id: 3,
-    title: "Gizi Sehat untuk Masyarakat",
-    description: "Program ini fokus pada edukasi gizi dan distribusi makanan sehat kepada masyarakat yang membutuhkan.",
-    details: [
-      "Edukasi gizi untuk ibu hamil dan menyusui.",
-      "Distribusi makanan sehat kepada masyarakat prasejahtera.",
-      "Kampanye tentang pentingnya makanan bergizi.",
-    ],
-    icon: "apple-alt",
-  },
-  {
-    id: 4,
-    title: "Program Spesial",
-    description: "Program khusus seperti RPA Goes to School, Ramadhan Ceria, dan Kurban Hingga Pelosok.",
-    details: [
-      "RPA Goes to School: Edukasi tentang pertanian dan gizi di sekolah.",
-      "Ramadhan Ceria: Berbagi makanan berbuka puasa.",
-      "Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.",
-    ],
-    icon: "gift",
-  },
-];
+// Use the imported programs data
 </script>
