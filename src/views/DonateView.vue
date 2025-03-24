@@ -13,7 +13,7 @@
         <!-- Main Content -->
         <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl mb-8 p-6">
           <!-- Payment Method Tabs -->
-          <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="grid grid-cols-1 gap-4 mb-6 mx-4">
             <button
               @click="activeMethod = 'transfer'"
               :class="[
@@ -26,7 +26,7 @@
               <i class="fas fa-credit-card text-lg"></i>
               Bank Transfer
             </button>
-            <button
+            <!-- <button
               @click="activeMethod = 'qr'"
               :class="[
                 'flex items-center justify-center gap-2 py-3 px-6 rounded-xl transition-all duration-300',
@@ -37,7 +37,7 @@
             >
               <i class="fas fa-qrcode text-lg"></i>
               QRIS
-            </button>
+            </button> -->
           </div>
 
           <!-- Bank Transfer Section -->
@@ -67,13 +67,13 @@
                     <template v-else> <i class="fas fa-copy"></i> Salin </template>
                   </button>
                 </div>
-                <p class="text-primary font-medium">a.n. RPA</p>
+                <p class="text-primary font-medium uppercase">a.n. Rumoh Pangan Aceh</p>
               </div>
             </div>
           </div>
 
           <!-- QR Code Section -->
-          <div v-if="activeMethod === 'qr'" class="bg-white rounded-xl shadow-md p-8 text-center">
+          <!-- <div v-if="activeMethod === 'qr'" class="bg-white rounded-xl shadow-md p-8 text-center">
             <h3 class="text-2xl font-bold text-primary mb-6">QRIS</h3>
             <div class="flex justify-center mb-6">
               <div
@@ -86,7 +86,7 @@
               Scan QR code menggunakan aplikasi e-wallet atau m-banking Anda
             </p>
             <p class="text-primary font-medium">a.n. RPA</p>
-          </div>
+          </div> -->
 
           <!-- Instructions -->
           <div class="mt-8 p-6 bg-gray-50 rounded-xl">
@@ -102,14 +102,12 @@
                 <li>Scan QR Code menggunakan aplikasi pembayaran Anda</li>
               </template>
               <li>Lakukan transfer sesuai nominal yang diinginkan</li>
-              <li>Simpan bukti transfer</li>
-              <li>Konfirmasi donasi melalui WhatsApp dengan mengirimkan bukti transfer</li>
             </ol>
           </div>
         </div>
 
         <!-- WhatsApp Button -->
-        <div class="text-center">
+        <!-- <div class="text-center">
           <a
             href="https://wa.me/085277600700"
             target="_blank"
@@ -119,7 +117,7 @@
             <i class="fab fa-whatsapp text-xl"></i>
             Konfirmasi via WhatsApp
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -132,8 +130,7 @@ const activeMethod = ref('transfer')
 const copiedAccount = ref('')
 
 const banks = [
-  { name: 'BCA', account: '1234567890' },
-  { name: 'Mandiri', account: '0987654321' },
+  { name: 'Bank Syariah Indonesia', account: '7299665776' },
 ]
 
 const copyToClipboard = async (text) => {
