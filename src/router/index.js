@@ -27,8 +27,8 @@ const router = createRouter({
     {
       path: '/program/:id',
       name: 'ProgramView',
-      component: () => import('../views/ProgramsView.vue'),
-      props: true, // Mengizinkan passing route params sebagai props
+      component: () => import('../views/ProgramView.vue'),
+      props: true,
     },
     {
       path: '/donate',
@@ -41,6 +41,13 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue'),
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  },
 })
 
 export default router
