@@ -53,14 +53,22 @@
     </section>
 
     <!-- Apa yang kami lakukan -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-primary mb-12">Apa yang Kami Lakukan?</h2>
-        <p class="text-lg text-gray-700 leading-relaxed text-justify max-w-2xl mx-auto">
+    <section class="py-12 md:py-16 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Judul dengan responsive font size -->
+      <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12">
+        Apa yang Kami Lakukan?
+      </h2>
+
+      <!-- Teks dengan penyesuaian responsive -->
+      <div class="px-4 sm:px-0">
+        <p class="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-loose text-justify">
           Rumoh Pangan Aceh (RPA) berkomitmen untuk meningkatkan ketahanan pangan (food security) di
           Aceh melalui pendekatan berkelanjutan. Kami mendukung petani lokal dalam memproduksi hasil
           pertanian dengan menerapkan sistem pertanian yang berkelanjutan (sustainable agriculture)
           serta membantu mereka mengakses pasar yang adil agar memperoleh harga jual yang layak.
+          <span class="hidden sm:inline"><br><br></span> <!-- Line break hanya di desktop -->
           Selain itu, RPA juga berperan sebagai penghubung antara masyarakat yang memiliki surplus
           makanan dengan mereka yang membutuhkan, guna mengurangi susut dan sisa pangan (food loss
           and waste reduction). Kami juga aktif dalam mengedukasi masyarakat mengenai pentingnya
@@ -68,7 +76,9 @@
           mereka yang membutuhkan.
         </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Dokumentasi Section -->
     <!-- Dokumentasi Section -->
