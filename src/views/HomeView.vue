@@ -71,54 +71,75 @@
     </section>
 
     <!-- Dokumentasi Section -->
-    <section class="py-16 bg-grey-100 relative overflow-hidden">
-      <div class="container mx-auto px-4 relative">
-        <!-- Swiper Container -->
-        <swiper
-          :modules="[Autoplay, Navigation, EffectCoverflow]"
-          :slides-per-view="2"
-          :centered-slides="true"
-          :space-between="30"
-          :loop="true"
-          :autoplay="{
-            delay: 5000,
-            disableOnInteraction: false,
-          }"
-          :navigation="{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }"
-          :effect="'coverflow'"
-          :coverflowEffect="{
-            rotate: 0, // Tidak ada rotasi
-            stretch: 0, // Jarak antara slide
-            depth: 100, // Kedalaman efek 3D
-            modifier: 1, // Modifier untuk mengatur intensitas efek
-            slideShadows: false, // Nonaktifkan bayangan
-          }"
-          class="swiper-container"
-        >
-          <!-- Slide Items -->
-          <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
-            <div class="relative w-full h-96 rounded-lg shadow-xl overflow-hidden">
-              <!-- Gambar -->
-              <div
-                class="w-full h-full bg-cover bg-center"
-                :style="`background-image: url(${doc.image})`"
-              ></div>
-              <!-- Keterangan -->
-              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
-                <p class="text-lg font-semibold">{{ doc.title }}</p>
-              </div>
-            </div>
-          </swiper-slide>
+    <!-- Dokumentasi Section -->
+<section class="py-16 bg-grey-100 relative overflow-hidden">
+  <div class="container mx-auto px-4 relative">
+    <!-- Swiper Container -->
+    <swiper
+      :modules="[Autoplay, Navigation, EffectCoverflow]"
+      :slides-per-view="1"
+      :centered-slides="true"
+      :space-between="20"
+      :loop="true"
+      :autoplay="{
+        delay: 5000,
+        disableOnInteraction: false,
+      }"
+      :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }"
+      :effect="'coverflow'"
+      :coverflowEffect="{
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      }"
+      :breakpoints="{
+        // Ketika lebar layar >= 640px
+        640: {
+          slidesPerView: 1.5,
+          spaceBetween: 20
+        },
+        // Ketika lebar layar >= 768px
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25
+        },
+        // Ketika lebar layar >= 1024px
+        1024: {
+          slidesPerView: 2.5,
+          spaceBetween: 30,
+          coverflowEffect: {
+            depth: 150
+          }
+        }
+      }"
+      class="swiper-container"
+    >
+      <!-- Slide Items -->
+      <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
+        <div class="relative w-full h-64 sm:h-80 md:h-96 rounded-lg shadow-xl overflow-hidden">
+          <!-- Gambar -->
+          <div
+            class="w-full h-full bg-cover bg-center"
+            :style="`background-image: url(${doc.image})`"
+          ></div>
+          <!-- Keterangan -->
+          <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
+            <p class="text-sm sm:text-base md:text-lg font-semibold">{{ doc.title }}</p>
+          </div>
+        </div>
+      </swiper-slide>
 
-          <!-- Navigation Buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </swiper>
-      </div>
-    </section>
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </swiper>
+  </div>
+</section>
     <!-- Impact Section -->
     <ImpactCompo />
     <!-- Program Section - Diubah untuk konsistensi -->
@@ -246,9 +267,9 @@ import doc6 from '@/assets/images/doc6.png'
 const dokumentasi = [
   { image: doc1, title: 'Kegiatan Food Rescue' },
   { image: doc2, title: 'Distribusi Makanan' },
-  { image: doc3, title: 'Edukasi Masyarakat' },
+  { image: doc3, title: 'Harvest Tour kebun melon petan mitra' },
   { image: doc4, title: 'Kegiatan Sosial' },
-  { image: doc5, title: 'Pelatihan Masyarakat' },
+  { image: doc5, title: 'Seminar international pertanian regeneratif dan food security' },
   { image: doc6, title: 'Bantuan Petani Tanyoe' },
 ]
 </script>
