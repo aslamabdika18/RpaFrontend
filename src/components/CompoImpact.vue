@@ -6,13 +6,22 @@
 
       <!-- Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 3: Kegiatan Sosial -->
+        <div
+          @click="setActiveChart('social')"
+          class="bg-white p-6 rounded-lg shadow-md text-center cursor-pointer hover:bg-gray-50 transition-colors duration-300"
+          :class="{ 'border-2 border-primary': activeChart === 'social' }"
+        >
+          <h3 class="text-2xl font-semibold text-primary mb-4">100+</h3>
+          <p class="text-gray-600">petani, peternak dan umkm kecil menjadi mitra</p>
+        </div>
         <!-- Card 1: Makanan Diselamatkan -->
         <div
           @click="setActiveChart('food')"
           class="bg-white p-6 rounded-lg shadow-md text-center cursor-pointer hover:bg-gray-50 transition-colors duration-300"
           :class="{ 'border-2 border-primary': activeChart === 'food' }"
         >
-          <h3 class="text-2xl font-semibold text-primary mb-4">10,000+</h3>
+          <h3 class="text-2xl font-semibold text-primary mb-4">⁠4 ton+</h3>
           <p class="text-gray-600">Makanan Diselamatkan</p>
         </div>
 
@@ -23,17 +32,15 @@
           :class="{ 'border-2 border-primary': activeChart === 'family' }"
         >
           <h3 class="text-2xl font-semibold text-primary mb-4">5,000+</h3>
-          <p class="text-gray-600">Keluarga Terbantu</p>
+          <p class="text-gray-600">keluarga prasejahtera terbantu</p>
         </div>
-
-        <!-- Card 3: Kegiatan Sosial -->
         <div
           @click="setActiveChart('social')"
           class="bg-white p-6 rounded-lg shadow-md text-center cursor-pointer hover:bg-gray-50 transition-colors duration-300"
           :class="{ 'border-2 border-primary': activeChart === 'social' }"
         >
           <h3 class="text-2xl font-semibold text-primary mb-4">100+</h3>
-          <p class="text-gray-600">Kegiatan Sosial</p>
+          <p class="text-gray-600">program sosial terlaksana</p>
         </div>
       </div>
     </div>
