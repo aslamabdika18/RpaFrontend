@@ -220,48 +220,60 @@ import ImpactCompo from '@/components/CompoImpact.vue'
 import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
-import { programs } from '@/data/Programs.js' // Impor data program yang benar
+import { programs } from '@/data/Programs.js'
 
-// Data untuk Hero Section
-const images = [image1, image2, image3, image4]
-const currentImageIndex = ref(0)
-let intervalId = null
-
-// Fungsi untuk mengganti ke gambar berikutnya
-const nextImage = () => {
-  currentImageIndex.value = (currentImageIndex.value + 1) % images.length
-}
-
-// Fungsi untuk mengganti ke gambar sebelumnya
-const prevImage = () => {
-  currentImageIndex.value = (currentImageIndex.value - 1 + images.length) % images.length
-}
-
-// Mulai interval saat komponen dimuat
-onMounted(() => {
-  intervalId = setInterval(nextImage, 5000)
-})
-
-// Hentikan interval saat komponen di-unmount
-onUnmounted(() => {
-  if (intervalId) {
-    clearInterval(intervalId)
-  }
-})
-
-// Impor gambar untuk Hero Section
-import image1 from '@/assets/images/1.jpg'
-import image2 from '@/assets/images/2.jpg'
-import image3 from '@/assets/images/3.jpg'
-import image4 from '@/assets/images/4.jpg'
-
-// Impor gambar untuk Dokumentasi
+// Import all documentation images
 import doc1 from '@/assets/images/doc1.png'
 import doc2 from '@/assets/images/doc2.png'
 import doc3 from '@/assets/images/doc3.png'
 import doc4 from '@/assets/images/doc4.png'
 import doc5 from '@/assets/images/doc5.png'
 import doc6 from '@/assets/images/doc6.png'
+import doc7 from '@/assets/images/doc7.png'
+import doc8 from '@/assets/images/doc8.png'
+import doc9 from '@/assets/images/doc9.png'
+import doc10 from '@/assets/images/doc10.png'
+import doc11 from '@/assets/images/doc11.png'
+import doc12 from '@/assets/images/doc12.png'
+import doc13 from '@/assets/images/doc13.png'
+
+// Use documentation images for hero section
+const images = [
+  doc1,
+  doc2,
+  doc3,
+  doc4,
+  doc5,
+  doc6,
+  doc7,
+  doc8,
+  doc9,
+  doc10,
+  doc11,
+  doc12,
+  doc13
+]
+
+const currentImageIndex = ref(0)
+let intervalId = null
+
+const nextImage = () => {
+  currentImageIndex.value = (currentImageIndex.value + 1) % images.length
+}
+
+const prevImage = () => {
+  currentImageIndex.value = (currentImageIndex.value - 1 + images.length) % images.length
+}
+
+onMounted(() => {
+  intervalId = setInterval(nextImage, 5000)
+})
+
+onUnmounted(() => {
+  if (intervalId) {
+    clearInterval(intervalId)
+  }
+})
 
 // Data untuk Dokumentasi
 const dokumentasi = [
@@ -274,6 +286,7 @@ const dokumentasi = [
 ]
 </script>
 
+<!-- Rest of your styles remain the same -->
 <style scoped>
 /* Custom Swiper Navigation Buttons */
 .swiper-button-prev,
