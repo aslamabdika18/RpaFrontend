@@ -121,19 +121,52 @@
     </section>
     <!-- Impact Section -->
     <ImpactCompo />
-    <!-- Program Section -->
-    <!-- Program Cards Section -->
-    <section class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start max-w-7xl">
-      <ProgramCard
-        v-for="program in programs"
-        :key="program.id"
-        :id="program.id"
-        :title="program.title"
-        :description="program.description"
-        :details="program.details"
-        :icon="program.icon"
-        :redirectToProgramView="true"
-      />
+    <!-- Program Section - Diubah untuk konsistensi -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center text-primary mb-12">Program Kami</h2>
+        <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto mb-12">
+          Menjembatani mereka yang berkelebihan dengan yang berkebutuhan
+        </p>
+
+        <!-- Grid Program Cards yang konsisten dengan ProgramsView.vue -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            v-for="program in programs"
+            :key="program.id"
+            class="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-[400px]"
+          >
+            <img
+              :src="program.images[0]"
+              :alt="program.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <div>
+                <h3 class="text-white text-xl font-bold mb-2">{{ program.title }}</h3>
+                <p class="text-gray-200 line-clamp-2">{{ program.description }}</p>
+                <router-link
+                  :to="`/program/${program.id}`"
+                  class="mt-4 inline-block text-white border-b border-transparent hover:border-white transition-all duration-300 font-medium"
+                >
+                  Pelajari lebih lanjut
+                </router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Lihat Semua Program -->
+        <div class="text-center mt-12">
+          <router-link
+            to="/programs"
+            class="inline-block px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition duration-300 font-medium"
+          >
+            Lihat Semua Program
+          </router-link>
+        </div>
+      </div>
     </section>
     <!-- Partnership Section -->
     <PartnersCompo />
@@ -161,26 +194,12 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import ProgramCard from '@/components/ProgramCard.vue'
 import PartnersCompo from '@/components/CompoPartners.vue'
 import ImpactCompo from '@/components/CompoImpact.vue'
 import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
-
-// Impor gambar untuk Hero Section
-import image1 from '@/assets/images/1.jpg'
-import image2 from '@/assets/images/2.jpg'
-import image3 from '@/assets/images/3.jpg'
-import image4 from '@/assets/images/4.jpg'
-
-// Impor gambar untuk Dokumentasi
-import doc1 from '@/assets/images/doc1.png'
-import doc2 from '@/assets/images/doc2.png'
-import doc3 from '@/assets/images/doc3.png'
-import doc4 from '@/assets/images/doc4.png'
-import doc5 from '@/assets/images/doc5.png'
-import doc6 from '@/assets/images/doc6.png'
+import { programs } from '@/data/Programs.js' // Impor data program yang benar
 
 // Data untuk Hero Section
 const images = [image1, image2, image3, image4]
@@ -199,7 +218,7 @@ const prevImage = () => {
 
 // Mulai interval saat komponen dimuat
 onMounted(() => {
-  intervalId = setInterval(nextImage, 5000) // Ganti gambar setiap 5 detik
+  intervalId = setInterval(nextImage, 5000)
 })
 
 // Hentikan interval saat komponen di-unmount
@@ -208,6 +227,20 @@ onUnmounted(() => {
     clearInterval(intervalId)
   }
 })
+
+// Impor gambar untuk Hero Section
+import image1 from '@/assets/images/1.jpg'
+import image2 from '@/assets/images/2.jpg'
+import image3 from '@/assets/images/3.jpg'
+import image4 from '@/assets/images/4.jpg'
+
+// Impor gambar untuk Dokumentasi
+import doc1 from '@/assets/images/doc1.png'
+import doc2 from '@/assets/images/doc2.png'
+import doc3 from '@/assets/images/doc3.png'
+import doc4 from '@/assets/images/doc4.png'
+import doc5 from '@/assets/images/doc5.png'
+import doc6 from '@/assets/images/doc6.png'
 
 // Data untuk Dokumentasi
 const dokumentasi = [
@@ -218,70 +251,20 @@ const dokumentasi = [
   { image: doc5, title: 'Pelatihan Masyarakat' },
   { image: doc6, title: 'Bantuan Petani Tanyoe' },
 ]
-const programs = [
-  {
-    id: 1,
-    title: 'Pengurangan Susut dan Sisa Pangan',
-    description:
-      'Program ini bertujuan untuk mengurangi food loss dan waste dengan menyelamatkan makanan yang masih layak konsumsi.',
-    details: [
-      'Mengumpulkan makanan dari restoran, supermarket, dan produsen makanan.',
-      'Mendistribusikan makanan kepada masyarakat yang membutuhkan.',
-      'Edukasi tentang pentingnya mengurangi pemborosan makanan.',
-    ],
-    icon: 'utensils',
-  },
-  {
-    id: 2,
-    title: 'Support Petani Lokal',
-    description:
-      'Kami mendukung petani lokal dengan berbagai program seperti Farm Tour, Buy or Donate, dan Sharing Session.',
-    details: [
-      'Farm Tour: Mengunjungi kebun petani lokal.',
-      'Buy or Donate: Membeli atau menyumbangkan hasil pertanian.',
-      'Sharing Session: Diskusi tentang pertanian berkelanjutan.',
-    ],
-    icon: 'tractor',
-  },
-  {
-    id: 3,
-    title: 'Gizi Sehat untuk Masyarakat',
-    description:
-      'Program ini fokus pada edukasi gizi dan distribusi makanan sehat kepada masyarakat yang membutuhkan.',
-    details: [
-      'Edukasi gizi untuk ibu hamil dan menyusui.',
-      'Distribusi makanan sehat kepada masyarakat prasejahtera.',
-      'Kampanye tentang pentingnya makanan bergizi.',
-    ],
-    icon: 'apple-alt',
-  },
-  {
-    id: 4,
-    title: 'Program Spesial',
-    description:
-      'Program khusus seperti RPA Goes to School, Ramadhan Ceria, dan Kurban Hingga Pelosok.',
-    details: [
-      'RPA Goes to School: Edukasi tentang pertanian dan gizi di sekolah.',
-      'Ramadhan Ceria: Berbagi makanan berbuka puasa.',
-      'Kurban Hingga Pelosok: Distribusi hewan kurban ke daerah terpencil.',
-    ],
-    icon: 'gift',
-  },
-]
 </script>
 
 <style scoped>
 /* Custom Swiper Navigation Buttons */
 .swiper-button-prev,
 .swiper-button-next {
-  color: white; /* Warna panah */
-  background: none; /* Hapus background */
-  font-size: 2rem; /* Ukuran panah */
+  color: white;
+  background: none;
+  font-size: 2rem;
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  color: #fbbf24; /* Warna saat hover */
+  color: #fbbf24;
 }
 
 /* Efek untuk slide samping */
@@ -289,18 +272,18 @@ const programs = [
   transition:
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
-  opacity: 0.5; /* Opacity untuk slide samping */
-  filter: blur(2px); /* Efek buram untuk slide samping */
+  opacity: 0.5;
+  filter: blur(2px);
 }
 
 .swiper-slide-active {
-  transform: scale(1); /* Skala normal untuk slide aktif */
-  opacity: 1; /* Opacity penuh untuk slide aktif */
-  filter: blur(0); /* Hilangkan efek buram untuk slide aktif */
+  transform: scale(1);
+  opacity: 1;
+  filter: blur(0);
 }
 
 .swiper-slide-prev,
 .swiper-slide-next {
-  transform: scale(0.9); /* Skala lebih kecil untuk slide samping */
+  transform: scale(0.9);
 }
 </style>
