@@ -5,12 +5,12 @@
       <h2 class="text-4xl font-bold text-center text-primary mb-12">Our Impact</h2>
 
       <!-- Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Card 3: Kegiatan Sosial -->
         <div
-          @click="setActiveChart('social')"
+          @click="setActiveChart('ternak')"
           class="bg-white p-6 rounded-lg shadow-md text-center cursor-pointer hover:bg-gray-50 transition-colors duration-300"
-          :class="{ 'border-2 border-primary': activeChart === 'social' }"
+          :class="{ 'border-2 border-primary': activeChart === 'ternak' }"
         >
           <h3 class="text-2xl font-semibold text-primary mb-4">100+</h3>
           <p class="text-gray-600">petani, peternak dan umkm kecil menjadi mitra</p>
