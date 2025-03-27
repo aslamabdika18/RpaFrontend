@@ -129,9 +129,7 @@ import { ref } from 'vue'
 const activeMethod = ref('transfer')
 const copiedAccount = ref('')
 
-const banks = [
-  { name: 'Bank Syariah Indonesia', account: '7299665776' },
-]
+const banks = [{ name: 'Bank Syariah Indonesia', account: '7299665776' }]
 
 const copyToClipboard = async (text) => {
   try {

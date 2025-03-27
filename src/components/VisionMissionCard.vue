@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 transform hover:scale-105 transition-transform duration-300">
+  <div
+    class="bg-white rounded-xl shadow-lg p-6 md:p-8 transform hover:scale-105 transition-transform duration-300"
+  >
     <h2 class="text-xl md:text-2xl font-bold text-primary mb-4">{{ title }}</h2>
     <ul v-if="Array.isArray(content)" class="space-y-3 normal-case text-gray-600">
       <li v-for="(item, index) in content" :key="index" class="flex items-start">
@@ -23,5 +25,5 @@ defineProps({
     type: [String, Array],
     required: true,
   },
-});
+})
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col min-h-96 hover:shadow-xl transition-shadow duration-300">
+  <div
+    class="bg-white rounded-lg shadow-lg p-6 flex flex-col min-h-96 hover:shadow-xl transition-shadow duration-300"
+  >
     <!-- Bagian atas card -->
     <div class="flex flex-col items-center text-center flex-grow">
       <!-- Ikon -->
@@ -44,7 +46,7 @@ defineProps({
     type: String,
     required: true,
   },
-});
+})
 </script>
 
 <style scoped>

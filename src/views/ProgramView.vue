@@ -37,7 +37,11 @@
           <!-- Program Details -->
           <div>
             <ul class="space-y-4">
-              <li v-for="(detail, index) in currentProgram.details" :key="index" class="flex items-start">
+              <li
+                v-for="(detail, index) in currentProgram.details"
+                :key="index"
+                class="flex items-start"
+              >
                 <span class="bg-primary/10 text-primary rounded-full p-2 mr-4">
                   <i class="fas fa-check text-sm"></i>
                 </span>
@@ -53,7 +57,11 @@
             </div>
 
             <div v-if="currentProgram.stats" class="mt-8 grid grid-cols-2 gap-4">
-              <div v-for="(stat, index) in currentProgram.stats" :key="index" class="bg-gray-50 p-4 rounded-lg text-center">
+              <div
+                v-for="(stat, index) in currentProgram.stats"
+                :key="index"
+                class="bg-gray-50 p-4 rounded-lg text-center"
+              >
                 <p class="text-3xl font-bold text-primary">{{ stat.value }}</p>
                 <p class="text-gray-600">{{ stat.label }}</p>
               </div>
@@ -74,7 +82,7 @@
                   :alt="`Dokumentasi ${currentProgram.title} ${index + 1}`"
                   class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                   @click="openLightbox(index)"
-                >
+                />
               </div>
             </div>
 
@@ -108,7 +116,11 @@
     </section>
 
     <!-- Lightbox Modal -->
-    <div v-if="showLightbox" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" @click.self="closeLightbox">
+    <div
+      v-if="showLightbox"
+      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+      @click.self="closeLightbox"
+    >
       <div class="relative max-w-4xl w-full">
         <button
           @click="closeLightbox"
@@ -120,22 +132,26 @@
           :src="currentProgram.images[lightboxIndex]"
           :alt="`Dokumentasi ${currentProgram.title}`"
           class="w-full max-h-[80vh] object-contain"
-        >
+        />
         <div class="flex justify-between mt-4">
           <button
             @click="prevImage"
             class="text-white hover:text-primary transition"
             :disabled="lightboxIndex === 0"
-            :class="{'opacity-50 cursor-not-allowed': lightboxIndex === 0}"
+            :class="{ 'opacity-50 cursor-not-allowed': lightboxIndex === 0 }"
           >
             <i class="fas fa-chevron-left text-2xl"></i>
           </button>
-          <span class="text-white">{{ lightboxIndex + 1 }} / {{ currentProgram.images.length }}</span>
+          <span class="text-white"
+            >{{ lightboxIndex + 1 }} / {{ currentProgram.images.length }}</span
+          >
           <button
             @click="nextImage"
             class="text-white hover:text-primary transition"
             :disabled="lightboxIndex === currentProgram.images.length - 1"
-            :class="{'opacity-50 cursor-not-allowed': lightboxIndex === currentProgram.images.length - 1}"
+            :class="{
+              'opacity-50 cursor-not-allowed': lightboxIndex === currentProgram.images.length - 1,
+            }"
           >
             <i class="fas fa-chevron-right text-2xl"></i>
           </button>
@@ -146,64 +162,64 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { programs } from '@/data/programs.js';
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { programs } from '@/data/programs.js'
 
-const route = useRoute();
+const route = useRoute()
 
 // Find the current program based on route ID
 const currentProgram = computed(() => {
-  return programs.find(program => program.id === parseInt(route.params.id)) || programs[0];
-});
+  return programs.find((program) => program.id === parseInt(route.params.id)) || programs[0]
+})
 
 // Lightbox functionality
-const showLightbox = ref(false);
-const lightboxIndex = ref(0);
+const showLightbox = ref(false)
+const lightboxIndex = ref(0)
 
 const openLightbox = (index) => {
-  lightboxIndex.value = index;
-  showLightbox.value = true;
-  document.body.style.overflow = 'hidden';
-};
+  lightboxIndex.value = index
+  showLightbox.value = true
+  document.body.style.overflow = 'hidden'
+}
 
 const closeLightbox = () => {
-  showLightbox.value = false;
-  document.body.style.overflow = 'auto';
-};
+  showLightbox.value = false
+  document.body.style.overflow = 'auto'
+}
 
 const nextImage = () => {
   if (lightboxIndex.value < currentProgram.value.images.length - 1) {
-    lightboxIndex.value++;
+    lightboxIndex.value++
   }
-};
+}
 
 const prevImage = () => {
   if (lightboxIndex.value > 0) {
-    lightboxIndex.value--;
+    lightboxIndex.value--
   }
-};
+}
 
 // Keyboard navigation for lightbox
 const handleKeydown = (e) => {
   if (e.key === 'Escape') {
-    closeLightbox();
+    closeLightbox()
   } else if (e.key === 'ArrowRight') {
-    nextImage();
+    nextImage()
   } else if (e.key === 'ArrowLeft') {
-    prevImage();
+    prevImage()
   }
-};
+}
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
+  window.addEventListener('keydown', handleKeydown)
   // Scroll to top when component mounts
-  window.scrollTo(0, 0);
-});
+  window.scrollTo(0, 0)
+})
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-});
+  window.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <style scoped>

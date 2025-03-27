@@ -8,11 +8,7 @@
 
     <!-- Program Cards Section -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full flex-grow">
-      <div
-        v-for="program in programs"
-        :key="program.id"
-        class="relative group overflow-hidden"
-      >
+      <div v-for="program in programs" :key="program.id" class="relative group overflow-hidden">
         <img
           :src="program.images[0]"
           :alt="program.title"

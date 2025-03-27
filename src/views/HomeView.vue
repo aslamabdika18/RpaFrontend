@@ -54,102 +54,106 @@
 
     <!-- Apa yang kami lakukan -->
     <section class="py-12 md:py-16 bg-white">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <!-- Judul dengan responsive font size -->
-      <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12">
-        Apa yang Kami Lakukan?
-      </h2>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <!-- Judul dengan responsive font size -->
+          <h2 class="text-3xl sm:text-4xl font-bold text-center text-primary mb-8 sm:mb-12">
+            Apa yang Kami Lakukan?
+          </h2>
 
-      <!-- Teks dengan penyesuaian responsive -->
-      <div class="px-4 sm:px-0">
-        <p class="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-loose text-justify">
-          Rumoh Pangan Aceh (RPA) berkomitmen untuk meningkatkan ketahanan pangan (food security) di
-          Aceh melalui pendekatan berkelanjutan. Kami mendukung petani lokal dalam memproduksi hasil
-          pertanian dengan menerapkan sistem pertanian yang berkelanjutan (sustainable agriculture)
-          serta membantu mereka mengakses pasar yang adil agar memperoleh harga jual yang layak.
-          <span class="hidden sm:inline"><br><br></span> <!-- Line break hanya di desktop -->
-          Selain itu, RPA juga berperan sebagai penghubung antara masyarakat yang memiliki surplus
-          makanan dengan mereka yang membutuhkan, guna mengurangi susut dan sisa pangan (food loss
-          and waste reduction). Kami juga aktif dalam mengedukasi masyarakat mengenai pentingnya
-          konsumsi makanan bergizi serta memastikan akses terhadap makanan sehat dan bernutrisi bagi
-          mereka yang membutuhkan.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Dokumentasi Section -->
-    <!-- Dokumentasi Section -->
-<section class="py-16 bg-grey-100 relative overflow-hidden">
-  <div class="container mx-auto px-4 relative">
-    <!-- Swiper Container -->
-    <swiper
-      :modules="[Autoplay, Navigation, EffectCoverflow]"
-      :slides-per-view="1"
-      :centered-slides="true"
-      :space-between="20"
-      :loop="true"
-      :autoplay="{
-        delay: 5000,
-        disableOnInteraction: false,
-      }"
-      :navigation="{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }"
-      :effect="'coverflow'"
-      :coverflowEffect="{
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-      }"
-      :breakpoints="{
-        // Ketika lebar layar >= 640px
-        640: {
-          slidesPerView: 1.5,
-          spaceBetween: 20
-        },
-        // Ketika lebar layar >= 768px
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 25
-        },
-        // Ketika lebar layar >= 1024px
-        1024: {
-          slidesPerView: 2.5,
-          spaceBetween: 30,
-          coverflowEffect: {
-            depth: 150
-          }
-        }
-      }"
-      class="swiper-container"
-    >
-      <!-- Slide Items -->
-      <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
-        <div class="relative w-full h-64 sm:h-80 md:h-96 rounded-lg shadow-xl overflow-hidden">
-          <!-- Gambar -->
-          <div
-            class="w-full h-full bg-cover bg-center"
-            :style="`background-image: url(${doc.image})`"
-          ></div>
-          <!-- Keterangan -->
-          <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
-            <p class="text-sm sm:text-base md:text-lg font-semibold">{{ doc.title }}</p>
+          <!-- Teks dengan penyesuaian responsive -->
+          <div class="px-4 sm:px-0">
+            <p
+              class="text-base sm:text-lg text-gray-700 leading-relaxed sm:leading-loose text-justify"
+            >
+              Rumoh Pangan Aceh (RPA) berkomitmen untuk meningkatkan ketahanan pangan (food
+              security) di Aceh melalui pendekatan berkelanjutan. Kami mendukung petani lokal dalam
+              memproduksi hasil pertanian dengan menerapkan sistem pertanian yang berkelanjutan
+              (sustainable agriculture) serta membantu mereka mengakses pasar yang adil agar
+              memperoleh harga jual yang layak.
+              <span class="hidden sm:inline"><br /><br /></span>
+              <!-- Line break hanya di desktop -->
+              Selain itu, RPA juga berperan sebagai penghubung antara masyarakat yang memiliki
+              surplus makanan dengan mereka yang membutuhkan, guna mengurangi susut dan sisa pangan
+              (food loss and waste reduction). Kami juga aktif dalam mengedukasi masyarakat mengenai
+              pentingnya konsumsi makanan bergizi serta memastikan akses terhadap makanan sehat dan
+              bernutrisi bagi mereka yang membutuhkan.
+            </p>
           </div>
         </div>
-      </swiper-slide>
+      </div>
+    </section>
 
-      <!-- Navigation Buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </swiper>
-  </div>
-</section>
+    <!-- Dokumentasi Section -->
+    <!-- Dokumentasi Section -->
+    <section class="py-16 bg-grey-100 relative overflow-hidden">
+      <div class="container mx-auto px-4 relative">
+        <!-- Swiper Container -->
+        <swiper
+          :modules="[Autoplay, Navigation, EffectCoverflow]"
+          :slides-per-view="1"
+          :centered-slides="true"
+          :space-between="20"
+          :loop="true"
+          :autoplay="{
+            delay: 5000,
+            disableOnInteraction: false,
+          }"
+          :navigation="{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }"
+          :effect="'coverflow'"
+          :coverflowEffect="{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }"
+          :breakpoints="{
+            // Ketika lebar layar >= 640px
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+            // Ketika lebar layar >= 768px
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 25,
+            },
+            // Ketika lebar layar >= 1024px
+            1024: {
+              slidesPerView: 2.5,
+              spaceBetween: 30,
+              coverflowEffect: {
+                depth: 150,
+              },
+            },
+          }"
+          class="swiper-container"
+        >
+          <!-- Slide Items -->
+          <swiper-slide v-for="(doc, index) in dokumentasi" :key="index">
+            <div class="relative w-full h-64 sm:h-80 md:h-96 rounded-lg shadow-xl overflow-hidden">
+              <!-- Gambar -->
+              <div
+                class="w-full h-full bg-cover bg-center"
+                :style="`background-image: url(${doc.image})`"
+              ></div>
+              <!-- Keterangan -->
+              <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-4 text-center">
+                <p class="text-sm sm:text-base md:text-lg font-semibold">{{ doc.title }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+
+          <!-- Navigation Buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </swiper>
+      </div>
+    </section>
     <!-- Impact Section -->
     <ImpactCompo />
     <!-- Program Section - Diubah untuk konsistensi -->
@@ -173,7 +177,9 @@
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               loading="lazy"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6"
+            >
               <div>
                 <h3 class="text-white text-xl font-bold mb-2">{{ program.title }}</h3>
                 <p class="text-gray-200 line-clamp-2">{{ program.description }}</p>
@@ -248,21 +254,7 @@ import doc12 from '@/assets/images/doc12.png'
 import doc13 from '@/assets/images/doc13.png'
 
 // Use documentation images for hero section
-const images = [
-  doc1,
-  doc2,
-  doc3,
-  doc4,
-  doc5,
-  doc6,
-  doc7,
-  doc8,
-  doc9,
-  doc10,
-  doc11,
-  doc12,
-  doc13
-]
+const images = [doc1, doc2, doc3, doc4, doc5, doc6, doc7, doc8, doc9, doc10, doc11, doc12, doc13]
 
 const currentImageIndex = ref(0)
 let intervalId = null

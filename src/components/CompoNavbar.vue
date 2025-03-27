@@ -23,7 +23,9 @@
             class="text-white relative overflow-hidden"
             active-class="text-green-300"
           >
-            <span class="block transition-all duration-300 hover:bg-green-700 py-2 px-3 lg:px-4 rounded-md">
+            <span
+              class="block transition-all duration-300 hover:bg-green-700 py-2 px-3 lg:px-4 rounded-md"
+            >
               {{ item.name }}
             </span>
           </router-link>
@@ -81,7 +83,7 @@ const navItems = [
   { path: '/programs', name: 'Programs' },
   { path: '/partners', name: 'Partners' },
   { path: '/donate', name: 'Donate' },
-  { path: '/contact', name: 'Contact' }
+  { path: '/contact', name: 'Contact' },
 ]
 
 const isScrolled = ref(false)
