@@ -1,16 +1,16 @@
-import doc1 from '@/assets/images/doc1.png'
-import doc2 from '@/assets/images/doc2.png'
-import doc3 from '@/assets/images/doc3.png'
-import doc4 from '@/assets/images/doc4.png'
-import doc5 from '@/assets/images/doc5.png'
-import doc6 from '@/assets/images/doc6.png'
-import doc7 from '@/assets/images/doc7.png'
-import doc8 from '@/assets/images/doc8.png'
-import doc9 from '@/assets/images/doc9.png'
-import doc10 from '@/assets/images/doc10.png'
-import doc11 from '@/assets/images/doc11.png'
-import doc12 from '@/assets/images/doc12.png'
-import doc13 from '@/assets/images/doc13.png'
+const PenguranganSusut = import.meta.glob('@/assets/images/PenguranganSusut/*.jpg', {
+  eager: true,
+})
+const SupportPetaniLokal = import.meta.glob('@/assets/images/SupportPetaniLokal/*.jpg', {
+  eager: true,
+})
+const GiziSehat = import.meta.glob('@/assets/images/GiziSehat/*.jpg', { eager: true })
+const ProgramSpesial = import.meta.glob('@/assets/images/ProgramSpesial/*.jpg', {
+  eager: true,
+})
+const getImageArray = (imagesObj) => {
+  return Object.values(imagesObj).map((module) => module.default)
+}
 
 export const programs = [
   {
@@ -34,7 +34,7 @@ export const programs = [
       { value: '2020', label: 'Tahun Berdiri' },
     ],
     icon: 'utensils',
-    images: [doc1, doc2],
+    images: getImageArray(PenguranganSusut),
     testimonials: [
       {
         quote:
@@ -69,7 +69,7 @@ export const programs = [
       { value: '2021', label: 'Tahun Berdiri' },
     ],
     icon: 'tractor',
-    images: [doc3, doc4, doc5, doc6, doc7, doc8],
+    images: getImageArray(SupportPetaniLokal),
     testimonials: [
       {
         quote:
@@ -103,7 +103,7 @@ export const programs = [
       { value: '2019', label: 'Tahun Berdiri' },
     ],
     icon: 'apple-alt',
-    images: [doc9, doc10, doc11],
+    images: getImageArray(GiziSehat),
     testimonials: [
       {
         quote:
@@ -133,7 +133,7 @@ export const programs = [
       { value: '2018', label: 'Tahun Berdiri' },
     ],
     icon: 'gift',
-    images: [doc12, doc13],
+    images: getImageArray(ProgramSpesial),
     testimonials: [
       {
         quote:
