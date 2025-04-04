@@ -94,11 +94,11 @@ import doc5 from '@/assets/images/doc5.png'
 import doc6 from '@/assets/images/doc6.png'
 
 const dokumentasi = [
-  { image: doc1, title: 'Kegiatan Food Rescue' },
+{ image: doc1, title: 'Kegiatan Food Rescue' },
   { image: doc2, title: 'Distribusi Makanan' },
-  { image: doc3, title: 'Edukasi Masyarakat' },
+  { image: doc3, title: 'Harvest Tour kebun melon petan mitra' },
   { image: doc4, title: 'Kegiatan Sosial' },
-  { image: doc5, title: 'Pelatihan Masyarakat' },
+  { image: doc5, title: 'Seminar international pertanian regeneratif dan food security' },
   { image: doc6, title: 'Bantuan Petani Tanyoe' },
 ]
 </script>
