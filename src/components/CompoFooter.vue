@@ -3,7 +3,7 @@
     <div class="container mx-auto text-center">
       <div class="mb-6 flex justify-center items-center space-x-6">
         <a
-          href="https://facebook.com"
+          href="https://facebook.com/rumohpanganaceh"
           target="_blank"
           class="text-white hover:text-green-300 transition-colors duration-300"
         >
@@ -17,14 +17,14 @@
           <i class="fab fa-twitter text-2xl"></i>
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/rumohpanganaceh"
           target="_blank"
           class="text-white hover:text-green-300 transition-colors duration-300"
         >
           <i class="fab fa-linkedin-in text-2xl"></i>
         </a>
         <a
-          href="https://instagram.com/@rumohpanganaceh"
+          href="https://instagram.com/rumohpanganaceh"
           class="text-white hover:text-green-300 transition-colors duration-300"
         >
           <i class="fab fa-instagram text-2xl"></i>
