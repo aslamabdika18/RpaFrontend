@@ -236,7 +236,7 @@ import ImpactCompo from '@/components/CompoImpact.vue'
 import Logo from '@/assets/logo/logo.png'
 import { Autoplay, Navigation, EffectCoverflow } from 'swiper/modules'
 import 'swiper/swiper-bundle.css'
-import { programs } from '@/data/Programs.js'
+import { programs } from '@/data/programs'
 
 // Import all documentation images
 import doc1 from '@/assets/images/doc1.png'

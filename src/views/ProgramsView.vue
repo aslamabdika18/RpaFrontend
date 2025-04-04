@@ -29,5 +29,5 @@
 </template>
 
 <script setup>
-import { programs } from '@/data/Programs.js'
+import { programs } from '@/data/programs'
 </script>

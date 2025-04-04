@@ -73,18 +73,70 @@
             <h3 class="text-xl font-semibold mb-4">Dokumentasi Kegiatan</h3>
             <div class="grid grid-cols-2 gap-4">
               <div
-                v-for="(image, index) in currentProgram.images"
+                v-for="(image, index) in displayedImages"
                 :key="index"
-                class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                class="relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <img
                   :src="image"
                   :alt="`Dokumentasi ${currentProgram.title} ${index + 1}`"
                   class="w-full h-40 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                  @click="openLightbox(index)"
+                  @click="handleImageClick(index)"
+                  loading="lazy"
                 />
+                <!-- Overlay "Lihat Semua" pada gambar ke-4 -->
+                <div
+                  v-if="index === 3 && currentProgram.images.length > 4 && !showAllImages"
+                  class="absolute inset-0 bg-black/50 flex items-center justify-center cursor-pointer"
+                  @click="showAllImages = true"
+                >
+                  <span class="text-white font-bold text-lg bg-primary/80 rounded-full px-4 py-1">
+                    +{{ currentProgram.images.length - 4 }} Lainnya
+                  </span>
+                </div>
               </div>
             </div>
+
+            <!-- Overlay untuk menampilkan semua gambar -->
+            <transition
+              enter-active-class="transition-opacity duration-300 ease-out"
+              enter-from-class="opacity-0"
+              enter-to-class="opacity-100"
+              leave-active-class="transition-opacity duration-200 ease-in"
+              leave-from-class="opacity-100"
+              leave-to-class="opacity-0"
+            >
+              <div
+                v-if="showAllImages"
+                class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+                @click.self="showAllImages = false"
+              >
+                <div class="relative w-full max-w-4xl max-h-[90vh]">
+                  <button
+                    @click="showAllImages = false"
+                    class="absolute -top-12 right-0 text-white hover:text-primary transition"
+                  >
+                    <i class="fas fa-times text-2xl"></i>
+                  </button>
+
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 overflow-y-auto max-h-[80vh] p-4">
+                    <div
+                      v-for="(image, index) in currentProgram.images"
+                      :key="index"
+                      class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <img
+                        :src="image"
+                        :alt="`Dokumentasi ${currentProgram.title} ${index + 1}`"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        @click="openLightbox(index)"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
 
             <div v-if="currentProgram.testimonials" class="mt-8">
               <h3 class="text-xl font-semibold mb-4">Testimoni Penerima Manfaat</h3>
@@ -116,70 +168,90 @@
     </section>
 
     <!-- Lightbox Modal -->
-    <div
-      v-if="showLightbox"
-      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-      @click.self="closeLightbox"
+    <transition
+      enter-active-class="transition-opacity duration-300 ease-out"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition-opacity duration-200 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
     >
-      <div class="relative max-w-4xl w-full">
-        <button
-          @click="closeLightbox"
-          class="absolute -top-12 right-0 text-white text-2xl hover:text-primary transition"
-        >
-          <i class="fas fa-times"></i>
-        </button>
-        <img
-          :src="currentProgram.images[lightboxIndex]"
-          :alt="`Dokumentasi ${currentProgram.title}`"
-          class="w-full max-h-[80vh] object-contain"
-        />
-        <div class="flex justify-between mt-4">
+      <div
+        v-if="showLightbox"
+        class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+        @click.self="closeLightbox"
+      >
+        <div class="relative max-w-4xl w-full">
           <button
-            @click="prevImage"
-            class="text-white hover:text-primary transition"
-            :disabled="lightboxIndex === 0"
-            :class="{ 'opacity-50 cursor-not-allowed': lightboxIndex === 0 }"
+            @click="closeLightbox"
+            class="absolute -top-12 right-0 text-white hover:text-primary transition"
           >
-            <i class="fas fa-chevron-left text-2xl"></i>
+            <i class="fas fa-times text-2xl"></i>
           </button>
-          <span class="text-white"
-            >{{ lightboxIndex + 1 }} / {{ currentProgram.images.length }}</span
-          >
-          <button
-            @click="nextImage"
-            class="text-white hover:text-primary transition"
-            :disabled="lightboxIndex === currentProgram.images.length - 1"
-            :class="{
-              'opacity-50 cursor-not-allowed': lightboxIndex === currentProgram.images.length - 1,
-            }"
-          >
-            <i class="fas fa-chevron-right text-2xl"></i>
-          </button>
+          <img
+            :src="currentProgram.images[lightboxIndex]"
+            :alt="`Dokumentasi ${currentProgram.title}`"
+            class="w-full max-h-[80vh] object-contain"
+          />
+          <div class="flex justify-between mt-4 text-white">
+            <button
+              @click="prevImage"
+              class="hover:text-primary transition"
+              :disabled="lightboxIndex === 0"
+              :class="{ 'opacity-50 cursor-not-allowed': lightboxIndex === 0 }"
+            >
+              <i class="fas fa-chevron-left text-2xl"></i>
+            </button>
+            <span>{{ lightboxIndex + 1 }} / {{ currentProgram.images.length }}</span>
+            <button
+              @click="nextImage"
+              class="hover:text-primary transition"
+              :disabled="lightboxIndex === currentProgram.images.length - 1"
+              :class="{
+                'opacity-50 cursor-not-allowed': lightboxIndex === currentProgram.images.length - 1,
+              }"
+            >
+              <i class="fas fa-chevron-right text-2xl"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { programs } from '@/data/programs.js'
+import { programs } from '@/data/programs'
 
 const route = useRoute()
+const showAllImages = ref(false)
+const showLightbox = ref(false)
+const lightboxIndex = ref(0)
 
 // Find the current program based on route ID
 const currentProgram = computed(() => {
   return programs.find((program) => program.id === parseInt(route.params.id)) || programs[0]
 })
 
-// Lightbox functionality
-const showLightbox = ref(false)
-const lightboxIndex = ref(0)
+// Display only 4 images initially
+const displayedImages = computed(() => {
+  return currentProgram.value.images.slice(0, 4)
+})
+
+const handleImageClick = (index) => {
+  if (index === 3 && currentProgram.value.images.length > 4 && !showAllImages.value) {
+    showAllImages.value = true
+  } else {
+    openLightbox(index)
+  }
+}
 
 const openLightbox = (index) => {
   lightboxIndex.value = index
   showLightbox.value = true
+  showAllImages.value = false
   document.body.style.overflow = 'hidden'
 }
 
@@ -202,6 +274,8 @@ const prevImage = () => {
 
 // Keyboard navigation for lightbox
 const handleKeydown = (e) => {
+  if (!showLightbox.value) return
+
   if (e.key === 'Escape') {
     closeLightbox()
   } else if (e.key === 'ArrowRight') {
@@ -213,7 +287,6 @@ const handleKeydown = (e) => {
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
-  // Scroll to top when component mounts
   window.scrollTo(0, 0)
 })
 
@@ -222,9 +295,19 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-/* Custom styles for the program view */
-.router-link-active {
-  color: inherit;
+<style>
+/* Custom scrollbar for overlay */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 </style>
