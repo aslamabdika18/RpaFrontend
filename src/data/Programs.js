@@ -27,30 +27,12 @@ export const programs = [
       'Edukasi STOP boros pangan di masyarakat',
       'Kegiatan di car free day dan hari pangan dunia',
     ],
-    stats: [
-      { value: '50+', label: 'Mitra' },
-      { value: '10.000+', label: 'Paket Makanan' },
-      { value: '5', label: 'Kota' },
-      { value: '2020', label: 'Tahun Berdiri' },
-    ],
     icon: 'utensils',
     images: getImageArray(PenguranganSusut),
-    testimonials: [
-      {
-        quote:
-          'Berkat program ini, keluarga saya bisa mendapatkan makanan bergizi secara rutin. Anak-anak saya sekarang lebih sehat.',
-        name: 'Ibu Siti, Penerima Manfaat',
-      },
-      {
-        quote:
-          'Sebagai mitra restoran, kami senang bisa berkontribusi mengurangi food waste sekaligus membantu masyarakat.',
-        name: 'Bapak Andi, Pemilik Restoran',
-      },
-    ],
   },
   {
     id: 2,
-    title: 'Support Petani Lokal',
+    title: 'Support Petani dan Peternak Lokal',
     description: 'Program untuk mendukung petani lokal dengan berbagai kegiatan pemberdayaan.',
     longDescription:
       'Program ini bertujuan untuk memberdayakan petani kecil dan menengah dengan memberikan mereka akses ke pasar yang lebih luas serta pengetahuan tentang pertanian berkelanjutan. Meliputi Farm Tour & Harvest Tour untuk menghubungkan petani dengan konsumen, Buy or Donate untuk membantu penjualan hasil kebun, Sharing Session untuk edukasi, Tumpang Sari Kacang Koro untuk mengurangi ketergantungan kedelai impor, Bantu Petani Tanyoe dengan sistem CSA, dan HaloTani untuk pendampingan petani.',
@@ -62,26 +44,8 @@ export const programs = [
       'Bantu Petani Tanyoe dengan sistem CSA',
       'HaloTani - program pendampingan petani',
     ],
-    stats: [
-      { value: '200+', label: 'Petani' },
-      { value: '5.000+', label: 'Penerima Manfaat' },
-      { value: '15', label: 'Desa' },
-      { value: '2021', label: 'Tahun Berdiri' },
-    ],
     icon: 'tractor',
     images: getImageArray(SupportPetaniLokal),
-    testimonials: [
-      {
-        quote:
-          'Dengan adanya program ini, hasil panen saya sekarang memiliki pasar yang pasti dengan harga yang adil.',
-        name: 'Bapak Jono, Petani',
-      },
-      {
-        quote:
-          'Saya senang bisa mendapatkan sayuran segar langsung dari petani lokal dengan kualitas terbaik.',
-        name: 'Ibu Rina, Konsumen',
-      },
-    ],
   },
   {
     id: 3,
@@ -96,21 +60,8 @@ export const programs = [
       'Fokus pada pencegahan stunting',
       'Kerjasama dengan rumah singgah dan panti asuhan',
     ],
-    stats: [
-      { value: '3.000+', label: 'Keluarga' },
-      { value: '50+', label: 'Kegiatan' },
-      { value: '10', label: 'Posyandu' },
-      { value: '2019', label: 'Tahun Berdiri' },
-    ],
     icon: 'apple-alt',
     images: getImageArray(GiziSehat),
-    testimonials: [
-      {
-        quote:
-          'Anak saya yang sebelumnya sering sakit-sakitan, sekarang lebih sehat setelah mengikuti program edukasi gizi ini.',
-        name: 'Ibu Maya, Penerima Manfaat',
-      },
-    ],
   },
   {
     id: 4,
@@ -126,20 +77,7 @@ export const programs = [
       'Kolaborasi dengan masyarakat luas',
       'Fokus pada solidaritas sosial',
     ],
-    stats: [
-      { value: '20+', label: 'Acara' },
-      { value: '5.000+', label: 'Penerima' },
-      { value: '30', label: 'Sekolah' },
-      { value: '2018', label: 'Tahun Berdiri' },
-    ],
     icon: 'gift',
     images: getImageArray(ProgramSpesial),
-    testimonials: [
-      {
-        quote:
-          'Anak-anak di sekolah kami sangat antusias dengan program edukasi tentang pertanian dan gizi.',
-        name: 'Bapak Guru, SDN 01',
-      },
-    ],
   },
 ]
